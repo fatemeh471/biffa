@@ -1,5 +1,40 @@
 {
   "products": {
     "cart": "اضافه کردن"
+  },
+  "header":{
+   "learningArticle":"مقالات آموزشی",
+   "cryptoAnalys":"تحلیل رمزارزها",
+   "bitfaAcademi":"آکادمی بیتفا",
+    "bitfanda":"بیتفاندا",
+    "learningStart":"آموزش شروع با سرمایه صفر",
+    "search":"جستجو"
+
+  },
+  "footer":{
+    "title":"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+    "contactInfo":"اطلاعات تماس",
+    "phoneNumber":"شماره تماس:",
+    "email":"ایمیل:",
+    "address":"آدرس:",
+    "products":"محصولات",
+    "bitfa":"بیتفا ایر",
+    "bitfanda":"بیتفاندا",
+    "dextreading":"دکس تریدینگ چیست؟",
+    "learningPan":"آموزش صرافی پنکیک سواپ",
+    "contactUs":"تماس با ما",
+    "easyAccess":"دسترسی آسان",
+    "news":"خبر فوری",
+    "baseConcept": "مفاهیم پایه",
+    "whatsNft":"NFT چیست؟",
+    "whatsTreading":"دکس تریدینگ چیست؟",
+    "joinBitfa":"در خبرنامه بیتفا عضو شوید",
+    "emailEmpty":"ایمیل",
+    "enterEmail":"ایمیل خود را وارد کنید",
+    "send":"ارسال"
+  },
+  "home":{
+    "articleAirdrop":"مقالات درباره ایردراپ | AirDrop",
+    "mostVisited":"پربازدید ترین مقالات "
   }
 }

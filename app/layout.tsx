@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "../common/styles/globals.css";
+import "#/styles/globals.css";
 
 const danaRegular = localFont({
   src: "./fonts/dana-regular.woff",
