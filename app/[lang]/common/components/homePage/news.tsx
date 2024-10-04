@@ -58,7 +58,7 @@ function News({ home }: any) {
             id={tabs.id}
             activeTab={activeTab}
             setActiveTab={setActiveTab}
-            className={` px-2 py-[0px] rounded-full ${
+            className={` px-4 py-[0px] rounded-full ${
               activeTab !== tabs.id
                 ? 'bg-neutral-100'
                 : 'border-[1px] border-neutral-90'

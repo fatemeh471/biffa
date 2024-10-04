@@ -43,7 +43,7 @@ const Header = ({ header }) => {
               className="py-[10px] px-[35px] bg-neutral-100 hidden xl:flex rounded-lg px-2"
               placeholder={header.search}
             />
-            <span className="absolute right-3 top-3git  text-gray-400">
+            <span className="absolute right-3 top-3  text-gray-400">
               <Image src={Search} alt="email" />
             </span>
           </div>
