@@ -8,7 +8,8 @@
    "bitfaAcademi":"آکادمی بیتفا",
     "bitfanda":"بیتفاندا",
     "learningStart":"آموزش شروع با سرمایه صفر",
-    "search":"جستجو"
+    "search":"جستجو",
+    "userAcount":"حساب کاربری"
 
   },
   "footer":{
@@ -31,10 +32,20 @@
     "joinBitfa":"در خبرنامه بیتفا عضو شوید",
     "emailEmpty":"ایمیل",
     "enterEmail":"ایمیل خود را وارد کنید",
-    "send":"ارسال"
+    "send":"ارسال",
+    "start":"شروع"
   },
   "home":{
     "articleAirdrop":"مقالات درباره ایردراپ | AirDrop",
-    "mostVisited":"پربازدید ترین مقالات "
+    "mostVisited":"پربازدید ترین مقالات ",
+    "bitfa":"بیتفا",
+    "lookAt":" نگاهی جدید به بازار رمزارزها",
+    "enterEmail":"ایمیل یا شماره همراه خود را وارد کنید",
+    "start":"شروع",
+    "analysCrypto":"تحلیل ها ارزها",
+    "mostVisitedNew":"پربازخوردترین اخبار",
+    "Analyzes":"تحلیل ها",
+    "breakingNews":"اخبار فوری",
+    "blog":"بلاگ"
   }
 }

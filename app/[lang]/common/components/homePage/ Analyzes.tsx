@@ -2,17 +2,18 @@
 import 'swiper/css/pagination';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import ProfileImage from '#/assets/svg/profile.svg';
 import { useState } from 'react';
 import { Controller, Pagination } from 'swiper/modules';
 import ChevronIcon from '#/assets/svg/chevron-left.svg';
-import Increasing from '#/assets/svg/increasing.svg';
-import Decreasing from '#/assets/svg/decreasing.svg';
+import LikeIcon from '#/assets/svg/like.svg';
+import SmsIcon from '#/assets/svg/sms.svg';
 import Image from 'next/image';
 import { TabContent, TabNav } from '../Tab';
-import { AnalyzesTabItems, categoriesNewsList } from '#/fakeData';
+import { AnalyzesTabItems, categoriesAnalysSwiper } from '#/fakeData';
 
-function News({ home }: any) {
-  const [activeTab, setActiveTab] = useState('allCategories');
+function Analyzes({ home }: any) {
+  const [activeTab, setActiveTab] = useState('learning');
   const [controlledSwiper, setControlledSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isBeginning, setIsBeginning] = useState(true);
@@ -27,16 +28,19 @@ function News({ home }: any) {
   return (
     <>
       <div className="flex items-center gap-2 pb-8">
-        <p className="font-[700] text-[32px] text-neutral-5">
-          {home.breakingNews}
-        </p>
+        <div>
+          <p className="font-[700] text-[32px] text-neutral-5">
+            {home.Analyzes}
+          </p>
+          <i color="#4D5F6D" />
+        </div>
         <div className="flex gap-5">
           <button
             onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
             className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
               isBeginning ? 'opacity-50 cursor-not-allowed' : ''
             }`}
-            disabled={isBeginning} // Disable button if at the beginning
+            disabled={isBeginning}
           >
             <Image width={24} height={24} src={ChevronIcon} alt="icon" />
           </button>
@@ -51,7 +55,6 @@ function News({ home }: any) {
           </button>
         </div>
       </div>
-
       <ul className="flex flex-row items-center justify-start gap-8 mb-6">
         {AnalyzesTabItems.map((tabs) => (
           <TabNav
@@ -74,7 +77,9 @@ function News({ home }: any) {
           pagination={{
             el: '.swiper-pagination',
             clickable: true,
+            type: 'bullets',
           }}
+          onSwiper={setControlledSwiper}
           modules={[Controller, Pagination]}
           slidesPerView={1}
           breakpoints={{
@@ -86,57 +91,58 @@ function News({ home }: any) {
             },
           }}
           onSlideChange={handleSlideChange}
+          dir="ltr"
           controller={{ control: controlledSwiper }}
-          onSwiper={setControlledSwiper}
-          className="swiper m-0"
+          className="swiper "
         >
-          {categoriesNewsList
-            .filter((item) => item.tab === activeTab)
+          {categoriesAnalysSwiper
+            .filter((item) => item.tab === activeTab) // Only show the active tab's content
             .map((item) => (
-              <TabContent key={item.tab} id={item.tab} activeTab={activeTab}>
-                {item.contents.map((content, idx) => (
-                  <SwiperSlide key={idx}>
-                    <div className="grid grid-cols-1 gap-8">
-                      {content?.contentInfo?.map((c) => (
-                        <div key={c.id} className="flex flex-row gap-6">
-                          <Image
-                            src={c.icon}
-                            alt="bitfa"
-                            priority
-                            className="w-[96px] rounded-xl !h-auto p-0 m-0"
-                          />
-                          <div>
-                            <p className="text-neutral-5 pt-[6px] text-neutral-50 font-medium text-[15px]">
-                              {c.text}
-                            </p>
-                            <div className="flex items-center justify-between">
-                              <p className="text-neutral-15 text-[12px]">
-                                {c.date}
-                              </p>
-                              <div className="flex items-center gap-4">
-                                <span className="flex justify-center items-center text-center text-error-30 text-sm h-[28px] rounded-full border-[1px] border-error-30 w-[52px]">
-                                  {c.countInc}
-                                  <Image
-                                    width={24}
-                                    height={24}
-                                    src={Decreasing}
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span className="flex justify-center items-center text-center text-secondary-15 bg-secondary-100 text-sm h-[28px] rounded-full border-[1px] border-secondary-15 w-[52px]">
-                                  {c.countInc}
-                                  <Image
-                                    width={24}
-                                    height={24}
-                                    src={Increasing}
-                                    alt="icon"
-                                  />
-                                </span>
-                              </div>
-                            </div>
+              <TabContent id={item.tab} activeTab={activeTab}>
+                {item.contents.map((content) => (
+                  <SwiperSlide key={content.id}>
+                    <div className="flex items-end flex-col bg-neutral-100 p-2 rounded-lg">
+                      <Image
+                        src={content.icon}
+                        alt={'bitfa'}
+                        priority
+                        className="w-full"
+                      />
+                      <p className="font-bold text-neutral-50 text-sm text-nowrap mt-2">
+                        {content.title}
+                      </p>
+                      <p className="text-end text-neutral-5 pb-3 pt-[6px] text-neutral-10 font-medium text-[17px]">
+                        {content.text}
+                      </p>
+                      <section className="flex justify-between w-full items-center">
+                        <div className="flex justify-between gap-5">
+                          <div className="flex items-center gap-2">
+                            <Image src={LikeIcon} alt={'bitfa'} priority />
+                            <span className="text-[15px] text-neutral-15">
+                              {content.lik}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Image src={SmsIcon} alt={'bitfa'} priority />
+                            <span className="text-[15px] text-neutral-15">
+                              {content.sms}
+                            </span>
                           </div>
                         </div>
-                      ))}
+                        <div className="grid grid-flow-col gap-2">
+                          <div className="row-span-2 ">
+                            <p className="text-end text-sm text-neutral-5">
+                              {content.name}
+                            </p>
+                            <p className="text-end text-xs text-neutral-15">
+                              {content.date}
+                            </p>
+                          </div>
+                          <div className="row-span-3">
+                            <Image src={ProfileImage} alt={'bitfa'} priority />
+                          </div>
+                        </div>
+                      </section>
                     </div>
                   </SwiperSlide>
                 ))}
@@ -152,4 +158,4 @@ function News({ home }: any) {
   );
 }
 
-export default News;
+export default Analyzes;
