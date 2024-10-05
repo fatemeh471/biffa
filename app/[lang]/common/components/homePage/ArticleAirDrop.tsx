@@ -8,6 +8,8 @@ import ProfileImage from '#/assets/svg/profile.svg';
 import ChevronIcon from '#/assets/svg/chevron-left.svg';
 import Image from 'next/image';
 import { categoriesArticleList } from '#/fakeData';
+import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
+import Link from 'next/link';
 
 function ArticleAirDrop({ home }) {
   const [controlledSwiper, setControlledSwiper] = useState(null);
@@ -23,32 +25,37 @@ function ArticleAirDrop({ home }) {
 
   return (
     <>
-      <div className="flex items-center gap-2 pb-8">
-        <div>
+      <div className="flex items-center justify-between gap-2 pb-8">
+        <div className="flex items-center gap-6">
           <p className="font-[700] text-[32px] text-neutral-5">
             {home.articleAirdrop}
           </p>
-          <i color="#4D5F6D" />
+          <div className="flex gap-2">
+            <button
+              onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
+              className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
+                isBeginning ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              disabled={isBeginning}
+            >
+              <Image width={24} height={24} src={ChevronIcon} alt="icon" />
+            </button>
+            <button
+              onClick={() => controlledSwiper && controlledSwiper.slideNext()}
+              className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
+                isEnd ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              disabled={isEnd}
+            >
+              <Image width={24} height={24} src={ChevronIcon} alt="icon" />
+            </button>
+          </div>
         </div>
-        <div className="flex gap-5">
-          <button
-            onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
-            className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-              isBeginning ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-            disabled={isBeginning}
-          >
-            <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-          </button>
-          <button
-            onClick={() => controlledSwiper && controlledSwiper.slideNext()}
-            className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-              isEnd ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-            disabled={isEnd}
-          >
-            <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-          </button>
+        <div className="flex items-center gap-1">
+          <Link href="#" className="text-primary-40 text-[17px] font-[600]">
+            {home.seeAll}
+          </Link>
+          <Image src={ArrowUpLeft} alt="icon" />
         </div>
       </div>
       <div>
@@ -66,7 +73,7 @@ function ArticleAirDrop({ home }) {
               slidesPerView: 4,
             },
           }}
-          onSwiper={setControlledSwiper} 
+          onSwiper={setControlledSwiper}
           onSlideChange={handleSlideChange}
           className="swiper"
         >

@@ -10,6 +10,8 @@ import Decreasing from '#/assets/svg/decreasing.svg';
 import Image from 'next/image';
 import { TabContent, TabNav } from '../Tab';
 import { AnalyzesTabItems, categoriesNewsList } from '#/fakeData';
+import Link from 'next/link';
+import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
 
 function News({ home }: any) {
   const [activeTab, setActiveTab] = useState('allCategories');
@@ -26,32 +28,39 @@ function News({ home }: any) {
 
   return (
     <>
-      <div className="flex items-center gap-2 pb-8">
-        <p className="font-[700] text-[32px] text-neutral-5">
-          {home.breakingNews}
-        </p>
-        <div className="flex gap-5">
-          <button
-            onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
-            className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-              isBeginning ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-            disabled={isBeginning} // Disable button if at the beginning
-          >
-            <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-          </button>
-          <button
-            onClick={() => controlledSwiper && controlledSwiper.slideNext()}
-            className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-              isEnd ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-            disabled={isEnd}
-          >
-            <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-          </button>
+      <div className="flex items-center justify-between gap-2 pb-8">
+        <div className="flex items-center gap-6">
+          <p className="font-[700] text-[32px] text-neutral-5">
+            {home.breakingNews}
+          </p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
+              className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
+                isBeginning ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              disabled={isBeginning}
+            >
+              <Image width={24} height={24} src={ChevronIcon} alt="icon" />
+            </button>
+            <button
+              onClick={() => controlledSwiper && controlledSwiper.slideNext()}
+              className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
+                isEnd ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              disabled={isEnd}
+            >
+              <Image width={24} height={24} src={ChevronIcon} alt="icon" />
+            </button>
+          </div>
+        </div>
+        <div className="flex items-center gap-1">
+          <Link href="#" className="text-primary-40 text-[17px] font-[600]">
+            {home.seeAll}
+          </Link>
+          <Image src={ArrowUpLeft} alt="icon" />
         </div>
       </div>
-
       <ul className="flex flex-row items-center justify-start gap-8 mb-6">
         {AnalyzesTabItems.map((tabs) => (
           <TabNav

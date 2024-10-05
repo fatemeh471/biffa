@@ -22,7 +22,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
       <main className="w-full overflow-auto px-4 md:px-[64px]">
         <MostVisitedArticle home={home} />
         <section className="md:py-[60px]">
-          <Image src={BannerImage} alt="icon" className=" w-full my-8 md:my-[60px]" />
+          <Image src={BannerImage} alt="icon" className=" w-full my-8 md:mb-[120px]" />
           <div className="mb-[120px]">
             <Weblog home={home} />
           </div>
