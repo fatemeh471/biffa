@@ -103,7 +103,7 @@ function Analyzes({ home }: any) {
           className="swiper "
         >
           {categoriesAnalysSwiper
-            .filter((item) => item.tab === activeTab) // Only show the active tab's content
+            .filter((item) => item.tab === activeTab)
             .map((item) => (
               <TabContent id={item.tab} activeTab={activeTab}>
                 {item.contents.map((content) => (
