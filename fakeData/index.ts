@@ -7,7 +7,7 @@ import Analys1 from '#/assets/svg/analys-1.svg';
 import Article from '#/assets/svg/article-1.svg';
 import Analys3 from '#/assets/svg/analys-3.svg';
 import Tread from '#/assets/svg/tread.png';
-
+import NewsPic from '#/assets/svg/news-pic.png'
 export const headerCoinList = [
 
 {
@@ -53,12 +53,6 @@ export const headerCoinList = [
 ];
 export const categories = [
 {
-  id: 1,
-  text: '2ساعت پیش ',
-  title: 'تحلیل بیت کوین',
-  icon: CoinIcon,
-},
-{
   id: 2,
   text: '2ساعت پیش ',
   title: 'تحلیل بیت کوین',
@@ -72,6 +66,12 @@ export const categories = [
 },
 {
   id: 4,
+  text: '2ساعت پیش ',
+  title: 'تحلیل بیت کوین',
+  icon: CoinIcon,
+},
+{
+  id: 5,
   text: '2ساعت پیش ',
   title: 'تحلیل بیت کوین',
   icon: CoinIcon,
@@ -358,9 +358,9 @@ export  const categoriesNewsList = [
       {
         contentInfo: [
           {
-            id: 1,
+            id: 0,
             text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
+            icon: NewsPic,
             link: '',
             lik: '25',
             sms: 20,
@@ -373,7 +373,7 @@ export  const categoriesNewsList = [
           {
             id: 1,
             text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
+            icon: NewsPic,
             link: '',
             lik: '25',
             sms: 20,
@@ -386,50 +386,7 @@ export  const categoriesNewsList = [
           {
             id: 1,
             text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
-            link: '',
-            lik: '25',
-            sms: 20,
-            name: 'احمدرضا',
-            date: '2 ساعت قبل',
-            countInc:25,
-            countDec:20
-
-          },
-        ],
-      },
-      {
-        contentInfo: [
-          {
-            id: 1,
-            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
-            link: '',
-            lik: '25',
-            sms: 20,
-            name: 'احمدرضا',
-            date: '2 ساعت قبل',
-            countInc:25,
-            countDec:20
-
-          },
-          {
-            id: 1,
-            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
-            link: '',
-            lik: '25',
-            sms: 20,
-            name: 'احمدرضا',
-            date: '2 ساعت قبل',
-            countInc:25,
-            countDec:20
-
-          },
-          {
-            id: 1,
-            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
+            icon: NewsPic,
             link: '',
             lik: '25',
             sms: 20,
@@ -446,7 +403,7 @@ export  const categoriesNewsList = [
           {
             id: 1,
             text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
+            icon: NewsPic,
             link: '',
             lik: '25',
             sms: 20,
@@ -459,7 +416,7 @@ export  const categoriesNewsList = [
           {
             id: 1,
             text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
+            icon: NewsPic,
             link: '',
             lik: '25',
             sms: 20,
@@ -472,50 +429,7 @@ export  const categoriesNewsList = [
           {
             id: 1,
             text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
-            link: '',
-            lik: '25',
-            sms: 20,
-            name: 'احمدرضا',
-            date: '2 ساعت قبل',
-            countInc:25,
-            countDec:20
-
-          },
-        ],
-      },
-      {
-        contentInfo: [
-          {
-            id: 1,
-            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
-            link: '',
-            lik: '25',
-            sms: 20,
-            name: 'احمدرضا',
-            date: '2 ساعت قبل',
-            countInc:25,
-            countDec:20
-
-          },
-          {
-            id: 1,
-            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
-            link: '',
-            lik: '25',
-            sms: 20,
-            name: 'احمدرضا',
-            date: '2 ساعت قبل',
-            countInc:25,
-            countDec:20
-
-          },
-          {
-            id: 1,
-            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
+            icon: NewsPic,
             link: '',
             lik: '25',
             sms: 20,
@@ -532,7 +446,7 @@ export  const categoriesNewsList = [
           {
             id: 1,
             text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
+            icon: NewsPic,
             link: '',
             lik: '25',
             sms: 20,
@@ -545,7 +459,7 @@ export  const categoriesNewsList = [
           {
             id: 1,
             text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
+            icon: NewsPic,
             link: '',
             lik: '25',
             sms: 20,
@@ -558,7 +472,93 @@ export  const categoriesNewsList = [
           {
             id: 1,
             text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
-            icon: Analys1,
+            icon: NewsPic,
+            link: '',
+            lik: '25',
+            sms: 20,
+            name: 'احمدرضا',
+            date: '2 ساعت قبل',
+            countInc:25,
+            countDec:20
+
+          },
+        ],
+      },
+      {
+        contentInfo: [
+          {
+            id: 1,
+            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
+            icon: NewsPic,
+            link: '',
+            lik: '25',
+            sms: 20,
+            name: 'احمدرضا',
+            date: '2 ساعت قبل',
+            countInc:25,
+            countDec:20
+
+          },
+          {
+            id: 1,
+            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
+            icon: NewsPic,
+            link: '',
+            lik: '25',
+            sms: 20,
+            name: 'احمدرضا',
+            date: '2 ساعت قبل',
+            countInc:25,
+            countDec:20
+
+          },
+          {
+            id: 1,
+            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
+            icon: NewsPic,
+            link: '',
+            lik: '25',
+            sms: 20,
+            name: 'احمدرضا',
+            date: '2 ساعت قبل',
+            countInc:25,
+            countDec:20
+
+          },
+        ],
+      },
+      {
+        contentInfo: [
+          {
+            id: 1,
+            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
+            icon: NewsPic,
+            link: '',
+            lik: '25',
+            sms: 20,
+            name: 'احمدرضا',
+            date: '2 ساعت قبل',
+            countInc:25,
+            countDec:20
+
+          },
+          {
+            id: 1,
+            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
+            icon: NewsPic,
+            link: '',
+            lik: '25',
+            sms: 20,
+            name: 'احمدرضا',
+            date: '2 ساعت قبل',
+            countInc:25,
+            countDec:20
+
+          },
+          {
+            id: 1,
+            text: 'رابرت کیوساکی: برداشته شدن سقف بدهی ثروتمندان را با فقیرتر شدن آمریکا پول‌دارتر می‌کند',
+            icon: NewsPic,
             link: '',
             lik: '25',
             sms: 20,

@@ -15,11 +15,11 @@ import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
 
 function Weblog({ home }: any) {
   const [activeTab, setActiveTab] = useState('allCategories');
-  const [controlledSwiper, setControlledSwiper] = useState(null);
+  const [controlledSwiper, setControlledSwiper] = useState<any>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: any) => {
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
   };
@@ -29,7 +29,7 @@ function Weblog({ home }: any) {
       <div className="flex items-center justify-between gap-2 pb-8">
         <div className="flex items-center gap-6">
           <p className="font-[700] text-[32px] text-neutral-5">{home.blog}</p>
-          <div className="flex gap-2">
+          <div className="hidden lg:flex gap-2">
             <button
               onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
               className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
@@ -52,12 +52,13 @@ function Weblog({ home }: any) {
         </div>
         <div className="flex items-center gap-1">
           <Link href="#" className="text-primary-40 text-[17px] font-[600]">
-            {home.seeAll}
+            <span className="block md:hidden">{home.all}</span>
+            <span className="hidden md:block">{home.seeAll}</span>
           </Link>
           <Image src={ArrowUpLeft} alt="icon" />
         </div>
       </div>
-      <ul className="flex flex-row items-center justify-start gap-8 mb-6">
+      <ul className="flex flex-row items-center justify-start overflow-x-auto gap-8 mb-6">
         {AnalyzesTabItems.map((tabs) => (
           <TabNav
             id={tabs.id}

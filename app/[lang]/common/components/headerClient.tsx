@@ -7,7 +7,7 @@ import Image from 'next/image';
 import UserIcon from '#/assets/svg/user.svg';
 import Button from './Button';
 
-const Header = ({ header }) => {
+const Header = ({ header }: { header : any}) => {
   return (
     <>
       <header className="hidden lg:flex justify-between items-center px-[66px] py-[18px]">
@@ -38,7 +38,7 @@ const Header = ({ header }) => {
           </nav>
         </div>
         <nav className="flex flex-row justify-end gap-4">
-          <div className='relative'>
+          <div className="relative">
             <input
               className="py-[10px] px-[35px] bg-neutral-100 hidden xl:flex rounded-lg px-2"
               placeholder={header.search}

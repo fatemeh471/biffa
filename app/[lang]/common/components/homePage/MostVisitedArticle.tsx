@@ -1,3 +1,8 @@
+'use client';
+import 'swiper/css/pagination';
+import 'swiper/css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Controller, Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import Increasing from '#/assets/svg/increasing.svg';
 import Decreasing from '#/assets/svg/decreasing.svg';
@@ -89,26 +94,93 @@ function MostVisitedArticle({ home }: any) {
           <p className="pt-[6px] text-neutral-5 mb-8 font-[600] text-[22px]">
             {home.mostVisitedNew}
           </p>
-          {mostVisitedNews.map((item) => (
-            <div className="flex-col mb-4">
-              <p className="pt-[6px] text-neutral-50 text-[16px]">
-                {item.text}
-              </p>
-              <div className="flex items-center pt-5 justify-between">
-                <p className="text-neutral-15 text-[12px]">{item.date}</p>
-                <div className="flex items-center gap-4">
-                  <span className="flex justify-center items-center text-center text-error-30 text-sm h-[28px] rounded-full border-[1px] border-error-30 w-[52px]">
-                    {item.DecCount}
-                    <Image width={24} height={24} src={Decreasing} alt="icon" />
-                  </span>
-                  <span className="flex justify-center items-center text-center text-secondary-15 bg-secondary-100 text-sm h-[28px] rounded-full border-[1px] border-secondary-15 w-[52px]">
-                    {item.IncCount}
-                    <Image width={24} height={24} src={Increasing} alt="icon" />
-                  </span>
+          <div className="block lg:hidden">
+            <Swiper
+              spaceBetween={10}
+              pagination={{
+                el: '.swiper-pagination',
+                clickable: true,
+              }}
+              slidesPerView={1}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                992: {
+                  slidesPerView: 3,
+                },
+              }}
+              className="swiper !mx-0"
+            >
+              {mostVisitedNews.map((item: any) => (
+                <SwiperSlide key={item.coinName}>
+                  <div className="flex-col mb-4">
+                    <p className="pt-[6px] text-neutral-50 text-[16px]">
+                      {item.text}
+                    </p>
+                    <div className="flex items-center pt-5 justify-between">
+                      <p className="text-neutral-15 text-[12px]">{item.date}</p>
+                      <div className="flex items-center gap-4">
+                        <span className="flex justify-center items-center text-center text-error-30 text-sm h-[28px] rounded-full border-[1px] border-error-30 w-[52px]">
+                          {item.DecCount}
+                          <Image
+                            width={24}
+                            height={24}
+                            src={Decreasing}
+                            alt="icon"
+                          />
+                        </span>
+                        <span className="flex justify-center items-center text-center text-secondary-15 bg-secondary-100 text-sm h-[28px] rounded-full border-[1px] border-secondary-15 w-[52px]">
+                          {item.IncCount}
+                          <Image
+                            width={24}
+                            height={24}
+                            src={Increasing}
+                            alt="icon"
+                          />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div className="hidden lg:block">
+            {mostVisitedNews.map((item) => (
+                <div className="flex-col mb-4">
+                  <p className="pt-[6px] text-neutral-50 text-[16px]">
+                    {item.text}
+                  </p>
+                  <div className="flex items-center pt-5 justify-between">
+                    <p className="text-neutral-15 text-[12px]">{item.date}</p>
+                    <div className="flex items-center gap-4">
+                      <span className="flex justify-center items-center text-center text-error-30 text-sm h-[28px] rounded-full border-[1px] border-error-30 w-[52px]">
+                        {item.DecCount}
+                        <Image
+                          width={24}
+                          height={24}
+                          src={Decreasing}
+                          alt="icon"
+                        />
+                      </span>
+                      <span className="flex justify-center items-center text-center text-secondary-15 bg-secondary-100 text-sm h-[28px] rounded-full border-[1px] border-secondary-15 w-[52px]">
+                        {item.IncCount}
+                        <Image
+                          width={24}
+                          height={24}
+                          src={Increasing}
+                          alt="icon"
+                        />
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

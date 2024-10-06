@@ -5,7 +5,6 @@ import News from '../common/components/homePage/news';
 import Weblog from '../common/components/homePage/weblog';
 import { getDictionary } from '../dictionaries';
 import BannerImage from '#/assets/svg/baner-trading.svg';
-import { headerCoinList } from '#/fakeData/index';
 import HeroSection from '../common/components/homePage/heroSection';
 import MostVisitedArticle from '../common/components/homePage/MostVisitedArticle';
 import React from 'react';
@@ -17,7 +16,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
 
   return (
     <>
-      <HeaderCois home={home} />
+      <HeaderCois />
       <HeroSection home={home} />
       <main className="w-full overflow-auto px-4 md:px-[64px]">
         <MostVisitedArticle home={home} />

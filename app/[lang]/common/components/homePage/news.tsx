@@ -15,12 +15,12 @@ import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
 
 function News({ home }: any) {
   const [activeTab, setActiveTab] = useState('allCategories');
-  const [controlledSwiper, setControlledSwiper] = useState(null);
+  const [controlledSwiper, setControlledSwiper] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: any) => {
     setActiveIndex(swiper.activeIndex);
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
@@ -33,7 +33,7 @@ function News({ home }: any) {
           <p className="font-[700] text-[32px] text-neutral-5">
             {home.breakingNews}
           </p>
-          <div className="flex gap-2">
+          <div className="hidden lg:flex gap-2">
             <button
               onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
               className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
@@ -56,12 +56,13 @@ function News({ home }: any) {
         </div>
         <div className="flex items-center gap-1">
           <Link href="#" className="text-primary-40 text-[17px] font-[600]">
-            {home.seeAll}
+            <span className="block md:hidden">{home.all}</span>
+            <span className="hidden md:block">{home.seeAll}</span>
           </Link>
           <Image src={ArrowUpLeft} alt="icon" />
         </div>
       </div>
-      <ul className="flex flex-row items-center justify-start gap-8 mb-6">
+      <ul className="flex flex-row items-center overflow-x-auto justify-start gap-8 mb-6">
         {AnalyzesTabItems.map((tabs) => (
           <TabNav
             id={tabs.id}
@@ -103,11 +104,11 @@ function News({ home }: any) {
             .filter((item) => item.tab === activeTab)
             .map((item) => (
               <TabContent key={item.tab} id={item.tab} activeTab={activeTab}>
-                {item.contents.map((content, idx) => (
+                {item.contents.map((content:any, idx) => (
                   <SwiperSlide key={idx}>
                     <div className="grid grid-cols-1 gap-8">
-                      {content?.contentInfo?.map((c) => (
-                        <div key={c.id} className="flex flex-row gap-6">
+                      {content?.contentInfo?.map((c: any) => (
+                        <div key={c.id} className="flex flex-row-reverse gap-6">
                           <Image
                             src={c.icon}
                             alt="bitfa"

@@ -1,6 +1,19 @@
 'use client';
 import React from 'react';
 
+type ButtonProps = {
+  type?: 'button' | 'submit' | 'reset';
+  isLoading?: boolean;
+  disabled?: boolean;
+  size?: 'small' | 'medium' | 'large'; // تعریف نوع برای اندازه‌ها
+  color?: string;
+  iconColor?: string;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  children?: React.ReactNode;
+  [key: string]: any;
+};
+
 const Button = ({
   type = 'button',
   isLoading = false,
@@ -12,7 +25,7 @@ const Button = ({
   endIcon,
   children,
   ...restProps
-}: any) => {
+}: ButtonProps) => {
   const sizeClass = {
     small: 'py-1 px-3 text-sm',
     medium:

@@ -7,7 +7,7 @@ import { Controller, Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import { headerCoinList } from '#/fakeData';
 
-export default async function HeaderCoins({ home }) {
+export default async function HeaderCoins() {
   return (
     <>
       <div className="md:px-[64px]">
@@ -20,13 +20,13 @@ export default async function HeaderCoins({ home }) {
           slidesPerView={1}
           breakpoints={{
             640: {
-              slidesPerView: 1, 
+              slidesPerView: 1,
             },
             768: {
-              slidesPerView: 2, 
+              slidesPerView: 2,
             },
             992: {
-              slidesPerView: 3, 
+              slidesPerView: 3,
             },
             1200: {
               slidesPerView: 4,

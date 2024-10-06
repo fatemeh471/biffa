@@ -12,12 +12,12 @@ import ChevronIcon from '#/assets/svg/chevron-left.svg';
 import { categories } from '#/fakeData';
 
 export default function HeroSection({ home }: any) {
-  const [controlledSwiper, setControlledSwiper] = useState(null);
+  const [controlledSwiper, setControlledSwiper] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: any) => {
     setActiveIndex(swiper.activeIndex);
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
@@ -107,6 +107,12 @@ export default function HeroSection({ home }: any) {
               slidesPerView: 2,
             },
             992: {
+              slidesPerView: 6,
+            },
+            1024: {
+              slidesPerView: 5,
+            },
+            1440: {
               slidesPerView: 7,
             },
           }}

@@ -14,14 +14,22 @@ import { AnalyzesTabItems, categoriesAnalysSwiper } from '#/fakeData';
 import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
 import Link from 'next/link';
 
-function Analyzes({ home }: any) {
+interface AnalyzesProps {
+  home: {
+    breakingNews: string;
+    seeAll: string;
+    all: string;
+  };
+}
+
+function Analyzes({ home }: AnalyzesProps) {
   const [activeTab, setActiveTab] = useState('learning');
-  const [controlledSwiper, setControlledSwiper] = useState(null);
+  const [controlledSwiper, setControlledSwiper] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: any) => {
     setActiveIndex(swiper.activeIndex);
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
@@ -34,7 +42,7 @@ function Analyzes({ home }: any) {
           <p className="font-[700] text-[32px] text-neutral-5">
             {home.breakingNews}
           </p>
-          <div className="flex gap-2">
+          <div className="hidden lg:flex gap-2">
             <button
               onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
               className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
@@ -57,12 +65,13 @@ function Analyzes({ home }: any) {
         </div>
         <div className="flex items-center gap-1">
           <Link href="#" className="text-primary-40 text-[17px] font-[600]">
-            {home.seeAll}
+            <span className="block md:hidden">{home.all}</span>
+            <span className="hidden md:block">{home.seeAll}</span>
           </Link>
           <Image src={ArrowUpLeft} alt="icon" />
         </div>
       </div>
-      <ul className="flex flex-row items-center justify-start gap-8 mb-6">
+      <ul className="flex overflow-x-auto flex-row items-center justify-start gap-8 mb-6">
         {AnalyzesTabItems.map((tabs) => (
           <TabNav
             id={tabs.id}
@@ -146,7 +155,11 @@ function Analyzes({ home }: any) {
                             </p>
                           </div>
                           <div className="row-span-3">
-                            <Image src={ProfileImage} alt={'bitfa'} priority />
+                            <Image
+                              src={ProfileImage}
+                              alt={'bitfa'}
+                              priority
+                            />
                           </div>
                         </div>
                       </section>

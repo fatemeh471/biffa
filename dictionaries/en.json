@@ -1,5 +1,51 @@
 {
-    "products": {
-      "cart": "Add to Cart"
-    }
+  "products": {
+    "cart": "Add to Cart"
+  },
+  "header": {
+    "learningArticle": "Educational Articles",
+    "cryptoAnalys": "Cryptocurrency Analysis",
+    "bitfaAcademi": "Bitfa Academy",
+    "bitfanda": "Bitfanda",
+    "learningStart": "Learning to Start with Zero Investment",
+    "search": "Search",
+    "userAcount": "User Account"
+  },
+  "footer": {
+    "title": "Lorem Ipsum is a dummy text used in the printing industry with the use of graphic designers.",
+    "contactInfo": "Contact Information",
+    "phoneNumber": "Phone Number:",
+    "email": "Email:",
+    "address": "Address:",
+    "products": "Products",
+    "bitfa": "Bitfa Air",
+    "bitfanda": "Bitfanda",
+    "dextreading": "What is Dex Trading?",
+    "learningPan": "PancakeSwap Exchange Tutorial",
+    "contactUs": "Contact Us",
+    "easyAccess": "Easy Access",
+    "news": "Breaking News",
+    "baseConcept": "Basic Concepts",
+    "whatsNft": "What is NFT?",
+    "whatsTreading": "What is Dex Trading?",
+    "joinBitfa": "Join Bitfa's Newsletter",
+    "emailEmpty": "Email",
+    "enterEmail": "Enter your email",
+    "send": "Send",
+    "start": "Start"
+  },
+  "home": {
+    "articleAirdrop": "Articles about Airdrop | AirDrop",
+    "mostVisited": "Most Visited Articles",
+    "bitfa": "Bitfa",
+    "lookAt": "A New Look at the Cryptocurrency Market",
+    "enterEmail": "Enter your email or phone number",
+    "start": "Start",
+    "analysCrypto": "Cryptocurrency Analyses",
+    "mostVisitedNew": "Most Feedback News",
+    "Analyzes": "Analyses",
+    "breakingNews": "Breaking News",
+    "blog": "Blog",
+    "seeAll": "See All"
   }
+}

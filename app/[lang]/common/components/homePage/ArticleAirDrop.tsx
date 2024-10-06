@@ -11,13 +11,13 @@ import { categoriesArticleList } from '#/fakeData';
 import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
 import Link from 'next/link';
 
-function ArticleAirDrop({ home }) {
-  const [controlledSwiper, setControlledSwiper] = useState(null);
+function ArticleAirDrop({ home }: { home : any}) {
+  const [controlledSwiper, setControlledSwiper] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: any) => {
     setActiveIndex(swiper.activeIndex);
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
@@ -30,7 +30,7 @@ function ArticleAirDrop({ home }) {
           <p className="font-[700] text-[32px] text-neutral-5">
             {home.articleAirdrop}
           </p>
-          <div className="flex gap-2">
+          <div className="hidden lg:flex gap-2">
             <button
               onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
               className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
@@ -53,7 +53,8 @@ function ArticleAirDrop({ home }) {
         </div>
         <div className="flex items-center gap-1">
           <Link href="#" className="text-primary-40 text-[17px] font-[600]">
-            {home.seeAll}
+            <span className="block md:hidden">{home.all}</span>
+            <span className="hidden md:block">{home.seeAll}</span>
           </Link>
           <Image src={ArrowUpLeft} alt="icon" />
         </div>

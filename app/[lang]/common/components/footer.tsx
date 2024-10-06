@@ -44,7 +44,7 @@ export default async function Footer({ params }: { params: { lang: string } }) {
           className="pb-6"
         />
       </div>
-      <div className="grid lg:grid-cols-3 gap-[100px]">
+      <div className="grid lg:grid-cols-3 ">
         <div className="flex flex-col">
           <span className="text-base text-neutral-100 pb-[32px]">
             {footer.title}
