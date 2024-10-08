@@ -1,20 +1,11 @@
 'use client';
-
-'use client';
-
 import React from 'react';
 import { Collapse, Space } from 'antd';
 import { UpOutlined, CopyOutlined } from '@ant-design/icons';
 
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
-
-const App: React.FC = ({ item }) => (
+const CollapseComponent = ({ item }: { item: any }) => (
   <Space direction="vertical" className="w-full">
-    {item.map((i) => (
+    {item.map((i: { answer: string; qustion: string }) => (
       <Collapse
         collapsible="header"
         expandIconPosition="end"
@@ -31,7 +22,8 @@ const App: React.FC = ({ item }) => (
             children: <p>{i.answer}</p>,
             label: (
               <Space>
-                <CopyOutlined style={{ color: 'orange' }} /> <span>{i.qustion}</span>
+                <CopyOutlined style={{ color: 'orange' }} />{' '}
+                <span>{i.qustion}</span>
               </Space>
             ),
           },
@@ -41,4 +33,4 @@ const App: React.FC = ({ item }) => (
   </Space>
 );
 
-export default App;
+export default CollapseComponent;
