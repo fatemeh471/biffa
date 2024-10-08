@@ -6,9 +6,13 @@ import Weblog from '../common/components/homePage/weblog';
 import { getDictionary } from '../dictionaries';
 import BannerImage from '#/assets/svg/baner-trading.svg';
 import HeroSection from '../common/components/homePage/heroSection';
-import MostVisitedArticle from '../common/components/homePage/MostVisitedArticle';
+// import MostVisitedArticle from '../common/components/homePage/MostVisitedArticle';
 import React from 'react';
 import HeaderCois from '../common/components/homePage/headerCoins';
+// import MostVisitedArticle from '../common/components/homePage/MostVisitedArticle';
+import { MostVisitedArticleList, mostVisitedNews } from '#/fakeData';
+import MostVisitedArticle from '../common/components/MostVisitedArticle';
+import BreakingNews from '../common/components/BreakingNews';
 
 export default async function Home({ params }: { params: { lang: string } }) {
   const dic = await getDictionary(params.lang);
@@ -19,14 +23,23 @@ export default async function Home({ params }: { params: { lang: string } }) {
       <HeaderCois />
       <HeroSection home={home} />
       <main className="w-full overflow-auto px-4 md:px-[64px]">
-        <MostVisitedArticle home={home} />
+        <MostVisitedArticle
+          title={home.mostVisited}
+          swiperData={mostVisitedNews}
+          data={MostVisitedArticleList}
+          newsLabel={home.mostVisitedNew}
+        />
         <section className="md:py-[60px]">
-          <Image src={BannerImage} alt="icon" className=" w-full my-8 md:mb-[120px]" />
+          <Image
+            src={BannerImage}
+            alt="icon"
+            className=" w-full my-8 md:mb-[120px]"
+          />
           <div className="mb-[120px]">
             <Weblog home={home} />
           </div>
           <div className="mb-[120px]">
-            <News home={home} />
+            <BreakingNews home={home} />
           </div>
           <div className="mb-[120px]">
             <Analyzes home={home} />

@@ -8,12 +8,12 @@ import ChevronIcon from '#/assets/svg/chevron-left.svg';
 import Increasing from '#/assets/svg/increasing.svg';
 import Decreasing from '#/assets/svg/decreasing.svg';
 import Image from 'next/image';
-import { TabContent, TabNav } from '../Tab';
 import { AnalyzesTabItems, categoriesNewsList } from '#/fakeData';
 import Link from 'next/link';
 import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
+import { TabContent, TabNav } from './Tab';
 
-function News({ home }: any) {
+function BreakingNews({ home }: any) {
   const [activeTab, setActiveTab] = useState('allCategories');
   const [controlledSwiper, setControlledSwiper] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -25,7 +25,7 @@ function News({ home }: any) {
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
   };
-
+console.log(home, 'home');
   return (
     <>
       <div className="flex items-center justify-between gap-2 pb-8">
@@ -104,7 +104,7 @@ function News({ home }: any) {
             .filter((item) => item.tab === activeTab)
             .map((item) => (
               <TabContent key={item.tab} id={item.tab} activeTab={activeTab}>
-                {item.contents.map((content:any, idx) => (
+                {item.contents.map((content: any, idx) => (
                   <SwiperSlide key={idx}>
                     <div className="grid grid-cols-1 gap-8">
                       {content?.contentInfo?.map((c: any) => (
@@ -162,4 +162,4 @@ function News({ home }: any) {
   );
 }
 
-export default News;
+export default BreakingNews;

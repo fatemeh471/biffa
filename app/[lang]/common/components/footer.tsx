@@ -9,22 +9,23 @@ import Youtube from '#/assets/svg/youtube.svg';
 import Twitter from '#/assets/svg/twitter.svg';
 import Button from './Button';
 import SendIcon from '#/assets/svg/send.svg';
+import Link from 'next/link';
 
 export default async function Footer({ params }: { params: { lang: string } }) {
+
   const dictionary = await getDictionary(params.lang);
   const { footer } = dictionary;
-
   const footerDetails = [
     { label: footer.phoneNumber, value: AppConfig.phoneNumber },
     { label: footer.email, value: AppConfig.email },
     { label: footer.address, value: AppConfig.city },
   ];
   const footerLinks = [
-    footer.bitfa,
-    footer.bitfanda,
-    footer.dextreading,
-    footer.learningPan,
-    footer.contactUs,
+    { label: footer.bitfa, link: '' },
+    { label: footer.bitfanda, link: '' },
+    { label: footer.dextreading, link: '' },
+    { label: footer.learningPan, link: '' },
+    { label: footer.aboutUs, link: 'about-us' },
   ];
   const footerAccess = [
     footer.news,
@@ -69,7 +70,12 @@ export default async function Footer({ params }: { params: { lang: string } }) {
               {footer.products}
             </span>
             {footerLinks.map((item) => (
-              <span className="text-base text-neutral-100 pt-4">{item}</span>
+              <Link
+                href={`${params.lang}/${item.link}`}
+                className="text-base text-neutral-100 pt-4"
+              >
+                {item.label}
+              </Link>
             ))}
           </div>
           <div className="flex flex-col ">
