@@ -49,7 +49,7 @@ export default async function AboutUs({ params }: { params: { lang: string } }) 
             alt="icon"
             className="w-full block md:hidden"
           />
-          <div className="absolute flex flex-col bottom-3 md:bottom-8 m rounded-[24px] p-6 md:mx-8 mx-[10px] justify-start z-10 bg-black bg-opacity-30">
+          <div className="absolute flex flex-col bottom-3 md:bottom-8 m rounded-[24px] p-6 md:mx-8 mx-[10px] justify-start z-10 bg-black bg-opacity-40 backdrop-blur-lg">
             <span className="text-[20px] text-neutral-100 font-[700] pb-1">
               {aboutUs.title}
             </span>

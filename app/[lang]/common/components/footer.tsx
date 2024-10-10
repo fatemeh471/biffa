@@ -24,14 +24,14 @@ export default async function Footer({ params }: { params: { lang: string } }) {
     { label: footer.bitfanda, link: '' },
     { label: footer.dextreading, link: '' },
     { label: footer.learningPan, link: '' },
-    { label: footer.aboutUs, link: 'about-us' },
+    { label: footer.aboutUs, link: '/about-us' },
   ];
   const footerAccess = [
     { label: footer.news, link: '' },
     { label: footer.baseConcept, link: '' },
     { label: footer.whatsNft, link: '' },
     { label: footer.whatsTreading, link: '' },
-    { label: footer.contactUs, link: 'contact-us' },
+    { label: footer.contactUs, link: '/contact-us' },
   ];
   return (
     <footer className="bg-neutral-5 pt-[48px] pb-10 px-4 lg:px-[99px] bottom-0 ">
@@ -70,7 +70,7 @@ export default async function Footer({ params }: { params: { lang: string } }) {
             </span>
             {footerLinks.map((item) => (
               <Link
-                href={`${params.lang}/${item.link}`}
+                href={`/${params.lang}${item.link}`}
                 className="text-base text-neutral-100 pt-4"
               >
                 {item.label}
@@ -83,7 +83,7 @@ export default async function Footer({ params }: { params: { lang: string } }) {
             </span>
             {footerAccess.map((item) => (
               <Link
-                href={`${params.lang}/${item.link}`}
+                href={`/${params.lang}${item.link}`}
                 className="text-base text-neutral-100 pt-4"
               >
                 {item.label}
