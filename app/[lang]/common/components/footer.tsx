@@ -45,7 +45,7 @@ export default async function Footer({ params }: { params: { lang: string } }) {
         />
       </div>
       <div className="grid lg:grid-cols-3 ">
-        <div className="flex flex-col">
+        <div className="flex flex-col md:w-[400px]">
           <span className="text-base text-neutral-100 pb-[32px]">
             {footer.title}
           </span>
@@ -63,7 +63,7 @@ export default async function Footer({ params }: { params: { lang: string } }) {
             </div>
           ))}
         </div>
-        <div className="flex w-full py-10 md:py-0 lg:px-6 justify-between">
+        <div className="flex w-full py-10 md:py-0 md:pe-12 justify-between">
           <div className="flex flex-col">
             <span className="text-2xl font-semibold text-neutral-100 pb-4">
               {footer.products}
