@@ -12,7 +12,6 @@ import SendIcon from '#/assets/svg/send.svg';
 import Link from 'next/link';
 
 export default async function Footer({ params }: { params: { lang: string } }) {
-
   const dictionary = await getDictionary(params.lang);
   const { footer } = dictionary;
   const footerDetails = [
@@ -28,11 +27,11 @@ export default async function Footer({ params }: { params: { lang: string } }) {
     { label: footer.aboutUs, link: 'about-us' },
   ];
   const footerAccess = [
-    footer.news,
-    footer.baseConcept,
-    footer.whatsNft,
-    footer.whatsTreading,
-    footer.contactUs,
+    { label: footer.news, link: '' },
+    { label: footer.baseConcept, link: '' },
+    { label: footer.whatsNft, link: '' },
+    { label: footer.whatsTreading, link: '' },
+    { label: footer.contactUs, link: 'contact-us' },
   ];
   return (
     <footer className="bg-neutral-5 pt-[48px] pb-10 px-4 lg:px-[99px] bottom-0 ">
@@ -64,7 +63,7 @@ export default async function Footer({ params }: { params: { lang: string } }) {
             </div>
           ))}
         </div>
-        <div className="flex w-full lg:px-6 justify-between">
+        <div className="flex w-full py-10 md:py-0 lg:px-6 justify-between">
           <div className="flex flex-col">
             <span className="text-2xl font-semibold text-neutral-100 pb-4">
               {footer.products}
@@ -83,7 +82,12 @@ export default async function Footer({ params }: { params: { lang: string } }) {
               {footer.easyAccess}
             </span>
             {footerAccess.map((item) => (
-              <span className="text-base text-neutral-100 pt-4">{item}</span>
+              <Link
+                href={`${params.lang}/${item.link}`}
+                className="text-base text-neutral-100 pt-4"
+              >
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>

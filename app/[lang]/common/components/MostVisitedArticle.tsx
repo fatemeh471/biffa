@@ -5,22 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import Increasing from '#/assets/svg/increasing.svg';
 import Decreasing from '#/assets/svg/decreasing.svg';
-
-interface ArticleData {
-  boldTopic: string;
-  boldText: string;
-  dateBold: string;
-  IncCount: string;
-  DecCount: string;
-  boldImage: string;
-  content: Array<{
-    image: string;
-    text: string;
-    date: string;
-    IncCount: string;
-    DecCount: string;
-  }>;
-}
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, Key } from 'react';
 
 interface MostVisitedArticleProps {
   data: any[];
@@ -42,7 +28,7 @@ function MostVisitedArticle({
 }: MostVisitedArticleProps) {
   return (
     <section className="mt-[70px] mb-6">
-      <h1 className="font-[700] text-[32px] pb-6">{title}</h1>
+      <h1 className="font-[700] text-[24px] md:text-[32px] pb-5 md:pb-6">{title}</h1>
       <div className="flex flex-col lg:flex-row gap-12">
         {data.map((most, index) => (
           <div
@@ -91,7 +77,7 @@ function MostVisitedArticle({
               />
             </div>
             <div className="flex flex-col lg:flex-row gap-8 pt-10">
-              {most.content.map((item, i) => (
+              {most.content.map((item: { image: string | StaticImport; text: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; date: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; DecCount: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; IncCount: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; }, i: Key | null | undefined) => (
                 <div key={i} className="flex-col mb-4">
                   <Image src={item.image} alt="icon" className="w-full" />
                   <p className="pt-[6px] text-neutral-5 font-[700] text-[16px]">
@@ -132,10 +118,6 @@ function MostVisitedArticle({
           <div className="block lg:hidden">
             <Swiper
               spaceBetween={10}
-              pagination={{
-                el: '.swiper-pagination',
-                clickable: true,
-              }}
               slidesPerView={1}
               breakpoints={{
                 640: {

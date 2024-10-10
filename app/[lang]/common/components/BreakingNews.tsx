@@ -30,7 +30,7 @@ console.log(home, 'home');
     <>
       <div className="flex items-center justify-between gap-2 pb-8">
         <div className="flex items-center gap-6">
-          <p className="font-[700] text-[32px] text-neutral-5">
+          <p className="font-[700] text-[24px] md:text-[32px] text-neutral-5">
             {home.breakingNews}
           </p>
           <div className="hidden lg:flex gap-2">
@@ -81,10 +81,6 @@ console.log(home, 'home');
       <div>
         <Swiper
           spaceBetween={30}
-          pagination={{
-            el: '.swiper-pagination',
-            clickable: true,
-          }}
           modules={[Controller, Pagination]}
           slidesPerView={1}
           breakpoints={{

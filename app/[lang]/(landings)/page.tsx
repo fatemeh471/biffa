@@ -1,15 +1,12 @@
 import Image from 'next/image';
 import Analyzes from '../common/components/homePage/ Analyzes';
 import ArticleAirDrop from '../common/components/homePage/ArticleAirDrop';
-import News from '../common/components/homePage/news';
 import Weblog from '../common/components/homePage/weblog';
 import { getDictionary } from '../dictionaries';
 import BannerImage from '#/assets/svg/baner-trading.svg';
 import HeroSection from '../common/components/homePage/heroSection';
-// import MostVisitedArticle from '../common/components/homePage/MostVisitedArticle';
 import React from 'react';
 import HeaderCois from '../common/components/homePage/headerCoins';
-// import MostVisitedArticle from '../common/components/homePage/MostVisitedArticle';
 import { MostVisitedArticleList, mostVisitedNews } from '#/fakeData';
 import MostVisitedArticle from '../common/components/MostVisitedArticle';
 import BreakingNews from '../common/components/BreakingNews';

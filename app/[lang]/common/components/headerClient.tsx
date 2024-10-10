@@ -1,24 +1,26 @@
 'use client';
-
 import Logo from '#/assets/svg/logo-dark.svg';
 import Search from '#/assets/svg/search.svg';
 import Menu from '#/assets/svg/menu.svg';
 import Image from 'next/image';
 import UserIcon from '#/assets/svg/user.svg';
 import Button from './Button';
+import Link from 'next/link';
 
 const Header = ({ header }: { header : any}) => {
   return (
     <>
       <header className="hidden lg:flex justify-between items-center px-[66px] py-[18px]">
         <div className="flex items-center">
-          <Image
-            src={Logo}
-            width={150}
-            height={47}
-            alt="Bitfa"
-            className="me-[56px]"
-          />
+          <Link href='/fa'>
+            <Image
+              src={Logo}
+              width={150}
+              height={47}
+              alt="Bitfa"
+              className="me-[56px]"
+            />
+          </Link>
           <nav className="flex gap-6">
             <span className="text-primary font-medium fs-[20px]">
               {header.learningArticle}

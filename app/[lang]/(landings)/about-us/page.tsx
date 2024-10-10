@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import { getDictionary } from '../../dictionaries';
 import AboutUsImage from '#/assets/svg/about-us.svg';
+import AboutUsMobileImage from '#/assets/svg/mobile-hero-about-us.svg';
 import MostVisitedArticle from '../../common/components/MostVisitedArticle';
 import { MostVisitedArticleList, mostVisitedNews } from '#/fakeData';
 import BreakingNews from '../../common/components/BreakingNews';
 import CollapseComponent from '../../common/components/CollapseComponent';
 
-export default async function Page({ params }: { params: { lang: string } }) {
+export default async function AboutUs({ params }: { params: { lang: string } }) {
   const dictionary = await getDictionary(params.lang);
   const { aboutUs, home } = dictionary;
   const aboutUsList = [
@@ -36,14 +37,23 @@ export default async function Page({ params }: { params: { lang: string } }) {
   ];
   return (
     <div className="px-4 md:px-[144px] flex-col md:pt-[56px] ">
-      <div className='md:border-[1px] md:rounded-[24px] md:p-8 md:border-neutral-98'>
+      <div className="md:border-[1px] md:rounded-[24px] md:p-8 md:border-neutral-98">
         <div className="relative mb-8">
-          <Image src={AboutUsImage} alt="icon" className="w-full" />
-          <div className="absolute flex flex-col bottom-8 m rounded-[24px] p-6 mx-8 justify-start z-10 bg-black bg-opacity-30">
+          <Image
+            src={AboutUsImage}
+            alt="icon"
+            className="w-full hidden md:block"
+          />
+          <Image
+            src={AboutUsMobileImage}
+            alt="icon"
+            className="w-full block md:hidden"
+          />
+          <div className="absolute flex flex-col bottom-3 md:bottom-8 m rounded-[24px] p-6 md:mx-8 mx-[10px] justify-start z-10 bg-black bg-opacity-30">
             <span className="text-[20px] text-neutral-100 font-[700] pb-1">
               {aboutUs.title}
             </span>
-            <span className="text-neutral-100 text-[13px]">
+            <span className="text-neutral-100 font-[300] md:font-[400] text-[12px] md:text-[13px]">
               {aboutUs.discription}
             </span>
           </div>
