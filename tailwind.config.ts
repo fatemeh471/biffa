@@ -89,7 +89,7 @@ const config: Config = {
           95: '#CDD0D6',
           98: '#D9DCE0',
           99: '#E6E8EB',
-          100: '#F2F3F5',
+          100: '#F7F7F7',
         },
         "surface-dark":{
           4:'#373737',

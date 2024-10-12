@@ -22,7 +22,7 @@ interface AnalyzesProps {
   };
 }
 
-function Analyzes({ home }: AnalyzesProps) {
+function AnalyzesTabsWithSlider({ home }: AnalyzesProps) {
   const [activeTab, setActiveTab] = useState('learning');
   const [controlledSwiper, setControlledSwiper] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -155,11 +155,7 @@ function Analyzes({ home }: AnalyzesProps) {
                             </p>
                           </div>
                           <div className="row-span-3">
-                            <Image
-                              src={ProfileImage}
-                              alt={'bitfa'}
-                              priority
-                            />
+                            <Image src={ProfileImage} alt={'bitfa'} priority />
                           </div>
                         </div>
                       </section>
@@ -178,4 +174,4 @@ function Analyzes({ home }: AnalyzesProps) {
   );
 }
 
-export default Analyzes;
+export default AnalyzesTabsWithSlider;

@@ -7,12 +7,20 @@ import UserIcon from '#/assets/svg/user.svg';
 import Button from './Button';
 import Link from 'next/link';
 
-const Header = ({ header }: { header : any}) => {
+const Header = ({ header, params }: any) => {
+  const headerNav = [
+    { label: header.learningArticle, link: '/' },
+    { label: header.cryptoList, link: '/crypto-list' },
+    { label: header.cryptoAnalys, link: '/' },
+    { label: header.bitfaAcademi, link: '/' },
+    { label: header.bitfanda, link: '/' },
+    { label: header.learningStart, link: '/' },
+  ];
   return (
     <>
       <header className="hidden lg:flex justify-between items-center px-[66px] py-[18px]">
         <div className="flex items-center">
-          <Link href='/fa'>
+          <Link href="/fa">
             <Image
               src={Logo}
               width={150}
@@ -22,21 +30,14 @@ const Header = ({ header }: { header : any}) => {
             />
           </Link>
           <nav className="flex gap-6">
-            <span className="text-primary font-medium fs-[20px]">
-              {header.learningArticle}
-            </span>
-            <span className="text-primary font-medium fs-[20px]">
-              {header.cryptoAnalys}
-            </span>
-            <span className="text-primary font-medium fs-[20px]">
-              {header.bitfaAcademi}
-            </span>
-            <span className="text-primary font-medium fs-[20px]">
-              {header.bitfanda}
-            </span>
-            <span className="text-primary font-medium fs-[20px]">
-              {header.learningStart}
-            </span>
+            {headerNav.map((item) => (
+              <Link
+                href={`/${params.lang}${item.link}`}
+                className="text-primary font-medium fs-[20px]"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
         </div>
         <nav className="flex flex-row justify-end gap-4">

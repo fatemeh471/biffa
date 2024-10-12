@@ -7,7 +7,7 @@ import { Controller, Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import { headerCoinList } from '#/fakeData';
 
-export default async function HeaderCoins() {
+export default async function HeroCoinListSlider() {
   return (
     <>
       <div className="md:px-[64px]">
