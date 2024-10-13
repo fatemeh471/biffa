@@ -28,3 +28,14 @@ span,
 link {
   font-family: var(--font-dana-regular) !important;
 }
+.background-linear-gradient {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #dcfff9 20.24%,
+    #f7f8fc 46.2%,
+    #c4faf1 64.84%,
+    #ffffff 81.36%,
+    #fcffef 93.67%
+  );
+}

@@ -11,10 +11,7 @@ const CollapseComponent = ({ item }: { item: any }) => (
         expandIconPosition="end"
         className="py-2 bg-transparent mb-3"
         expandIcon={({ isActive }) => (
-          <UpOutlined
-            rotate={isActive ? 90 : 0}
-            style={{ color: 'orange' }} // تغییر رنگ آیکن به نارنجی
-          />
+          <UpOutlined rotate={isActive ? 90 : 0} className="text-primary-40" />
         )}
         items={[
           {
@@ -22,7 +19,7 @@ const CollapseComponent = ({ item }: { item: any }) => (
             children: <p>{i.answer}</p>,
             label: (
               <Space>
-                <CopyOutlined style={{ color: 'orange' }} />{' '}
+                <CopyOutlined className="text-primary-40" />{' '}
                 <span>{i.qustion}</span>
               </Space>
             ),

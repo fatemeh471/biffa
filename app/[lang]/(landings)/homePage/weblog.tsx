@@ -8,7 +8,7 @@ import { Controller, Pagination } from 'swiper/modules';
 import ChevronIcon from '#/assets/svg/chevron-left.svg';
 import LikeIcon from '#/assets/svg/like.svg';
 import Image from 'next/image';
-import { TabContent, TabNav } from '../Tab';
+import { TabContent, TabNav } from '../../common/components/Tab';
 import { AnalyzesTabItems, categoriesWeblogList } from '#/fakeData';
 import Link from 'next/link';
 import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';

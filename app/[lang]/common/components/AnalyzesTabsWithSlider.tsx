@@ -9,7 +9,7 @@ import ChevronIcon from '#/assets/svg/chevron-left.svg';
 import LikeIcon from '#/assets/svg/like.svg';
 import SmsIcon from '#/assets/svg/sms.svg';
 import Image from 'next/image';
-import { TabContent, TabNav } from '../Tab';
+import { TabContent, TabNav } from './Tab';
 import { AnalyzesTabItems, categoriesAnalysSwiper } from '#/fakeData';
 import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
 import Link from 'next/link';
@@ -20,10 +20,11 @@ interface AnalyzesProps {
     seeAll: string;
     all: string;
   };
+  tab?: boolean;
 }
 
-function AnalyzesTabsWithSlider({ home }: AnalyzesProps) {
-  const [activeTab, setActiveTab] = useState('learning');
+function AnalyzesTabsWithSlider({ home, tab }: AnalyzesProps) {
+  const [activeTab, setActiveTab] = useState(AnalyzesTabItems[0].id);
   const [controlledSwiper, setControlledSwiper] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isBeginning, setIsBeginning] = useState(true);
@@ -40,7 +41,7 @@ function AnalyzesTabsWithSlider({ home }: AnalyzesProps) {
       <div className="flex items-center justify-between gap-2 pb-8">
         <div className="flex items-center gap-6">
           <p className="font-[700] text-[32px] text-neutral-5">
-            {home.breakingNews}
+            {home.analysCrypto}
           </p>
           <div className="hidden lg:flex gap-2">
             <button
@@ -71,22 +72,25 @@ function AnalyzesTabsWithSlider({ home }: AnalyzesProps) {
           <Image src={ArrowUpLeft} alt="icon" />
         </div>
       </div>
-      <ul className="flex overflow-x-auto flex-row items-center justify-start gap-8 mb-6">
-        {AnalyzesTabItems.map((tabs) => (
-          <TabNav
-            id={tabs.id}
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-            className={` px-2 py-[0px] rounded-full ${
-              activeTab !== tabs.id
-                ? 'bg-neutral-100'
-                : 'border-[1px] border-neutral-90'
-            }`}
-          >
-            {tabs.name}
-          </TabNav>
-        ))}
-      </ul>
+      {tab && (
+        <ul className="flex overflow-x-auto flex-row items-center justify-start gap-8 mb-6">
+          {AnalyzesTabItems.map((tabs) => (
+            <TabNav
+              id={tabs.id}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              className={` px-2 py-[0px] rounded-full ${
+                activeTab !== tabs.id
+                  ? 'bg-neutral-100'
+                  : 'border-[1px] border-neutral-90'
+              }`}
+            >
+              {tabs.name}
+            </TabNav>
+          ))}
+        </ul>
+      )}
+
       <div>
         <Swiper
           spaceBetween={30}

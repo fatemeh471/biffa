@@ -40,7 +40,7 @@ export default async function AboutUs({ params }: { params: { lang: string } }) 
       <div className="md:border-[1px] md:rounded-[24px] md:p-8 md:border-neutral-98">
         <div className="relative mb-8">
           <Image
-            src={AboutUsImage}
+            src={AboutUsImage}  
             alt="icon"
             className="w-full hidden md:block"
           />

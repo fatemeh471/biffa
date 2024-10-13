@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import Analyzes from '../common/components/homePage/Analyzes';
-import ArticleAirDrop from '../common/components/homePage/ArticleAirDrop';
-import Weblog from '../common/components/homePage/weblog';
+import Analyzes from '../common/components/AnalyzesTabsWithSlider';
+import ArticleAirDrop from './homePage/ArticleAirDrop';
+import Weblog from './homePage/weblog';
 import { getDictionary } from '../dictionaries';
 import BannerImage from '#/assets/svg/baner-trading.svg';
-import HeroSection from '../common/components/homePage/heroSection';
+import HeroSection from './homePage/heroSection';
 import React from 'react';
-import HeaderCois from '../common/components/homePage/HeroCoinListSlider';
+import HeaderCois from './homePage/HeroCoinListSlider';
 import { MostVisitedArticleList, mostVisitedNews } from '#/fakeData';
 import MostVisitedArticle from '../common/components/MostVisitedArticle';
 import BreakingNews from '../common/components/BreakingNews';
@@ -39,7 +39,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
             <BreakingNews home={home} />
           </div>
           <div className="mb-[120px]">
-            <Analyzes home={home} />
+            <Analyzes home={home} tab={true} />
           </div>
           <ArticleAirDrop home={home} />
         </section>

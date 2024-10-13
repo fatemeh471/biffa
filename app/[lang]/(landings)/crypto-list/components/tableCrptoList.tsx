@@ -2,7 +2,11 @@
 import React, { useState } from 'react';
 import { Table, Space } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
-import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
+import {
+  CaretDownOutlined,
+  CaretUpOutlined,
+  SearchOutlined,
+} from '@ant-design/icons';
 import CoinIcon from '#/assets/svg/coin.svg';
 import Image from 'next/image';
 import { favoriteData, metaverseData } from '#/fakeData';
@@ -10,8 +14,8 @@ import { favoriteData, metaverseData } from '#/fakeData';
 type OnChange = NonNullable<TableProps<any>['onChange']>;
 type Sorts = Parameters<OnChange>[2];
 
-const TableCryptoList: React.FC = ({ cryptoList }: any) => {
-  const [sortedInfo, setSortedInfo] = useState<Sorts>({});
+const TableCryptoList = ({ cryptoList }: any) => {
+  const [sortedInfo, setSortedInfo] = useState<any>({});
   const [activeButton, setActiveButton] = useState<string>('favorite');
 
   const getDataSource = () => {
@@ -30,7 +34,7 @@ const TableCryptoList: React.FC = ({ cryptoList }: any) => {
   };
 
   // تنظیم ستون‌ها
-  const columns: TableColumnsType<DataType> = [
+  const columns: TableColumnsType<any> = [
     {
       title: () => (
         <span className="text-neutral-30 text-[14px] font-[400]">
@@ -225,9 +229,111 @@ const TableCryptoList: React.FC = ({ cryptoList }: any) => {
       },
     },
   ];
-
+  const mobileColumns: TableColumnsType<any> = [
+    {
+      title: () => (
+        <span className="text-neutral-30 text-[14px] font-[400]">
+          {cryptoList.weeklyChart}
+        </span>
+      ),
+      dataIndex: 'weeklyChart',
+      key: 'weeklyChart',
+      width: '100px',
+      sorter: (a, b) => a.weeklyChart.length - b.weeklyChart.length,
+      sortOrder:
+        sortedInfo.columnKey === 'weeklyChart' ? sortedInfo.order : null,
+      ellipsis: true,
+      render: (text: string) => <Space>-----------------------</Space>,
+    },
+    {
+      title: () => (
+        <span className="text-neutral-30 text-[14px] font-[400]">
+          {cryptoList.daily}
+        </span>
+      ),
+      dataIndex: 'daily',
+      key: 'daily',
+      sorter: (a, b) => a.daily - b.daily,
+      sortOrder: sortedInfo.columnKey === 'daily' ? sortedInfo.order : null,
+      ellipsis: true,
+      width: '50px',
+      colSpan: 1,
+      render: (value) => {
+        return (
+          <div className="flex items-center gap-1">
+            <p
+              className={` ${
+                value > 0 ? 'text-secondary-25' : 'text-error-50'
+              } text-[14px]`}
+            >
+              {value}
+            </p>
+            {value > 0 ? (
+              <CaretUpOutlined className="text-secondary-30 w-[10px]" />
+            ) : (
+              <CaretDownOutlined className="text-error-50 w-[10px]" />
+            )}
+          </div>
+        );
+      },
+    },
+    {
+      title: () => (
+        <span className="text-neutral-30 text-[12px] font-[400]">
+          {cryptoList.dollarPrice}
+        </span>
+      ),
+      colSpan: 1,
+      width: '100px',
+      dataIndex: 'dollarPrice',
+      key: 'dollarPrice',
+      sorter: (a, b) => a.dollarPrice - b.dollarPrice,
+      sortOrder:
+        sortedInfo.columnKey === 'dollarPrice' ? sortedInfo.order : null,
+      ellipsis: true,
+      render: (value) => {
+        return (
+          <div className="flex flex-col">
+            <span className="text-neutral-0 text-[14px] font-[500]">
+              {value} ${' '}
+            </span>
+            <span className="text-neutral-25 text-[12px] font-[400]">
+              ۲,۳۴۱,۹۰۸,۹۲۱
+            </span>
+          </div>
+        );
+      },
+    },
+    {
+      title: () => (
+        <span className="text-neutral-30 text-[14px] font-[400]">
+          {cryptoList.coinName}
+        </span>
+      ),
+      colSpan: 1,
+      dataIndex: 'coinName',
+      width: '100px',
+      key: 'coinName',
+      sorter: (a, b) => a.coinName.length - b.coinName.length,
+      sortOrder: sortedInfo.columnKey === 'coinName' ? sortedInfo.order : null,
+      ellipsis: true,
+      render: (value, record) => {
+        return (
+          <div className="flex items-center ">
+            <div className="flex flex-col items-end">
+              <span className="text-neutral-0 font-[500] text-[12px]">
+                {record.coinName}
+              </span>
+              <span className="text-neutral-30 text-[10px]">Bitcoin</span>
+            </div>
+            <Image src={CoinIcon} width={24} height={24} alt="coin" />
+          </div>
+        );
+      },
+    },
+  ];
   const tabLinks = [
-    { label: cryptoList.myFavorites, id: 'favorite' },
+    { label: cryptoList.allCrypto, id: 'favorite' },
     { label: cryptoList.metaverse, id: 'metaverse' },
     { label: cryptoList.fanTokens, id: 'fanTokens' },
     { label: cryptoList.memeCoins, id: 'memeCoins' },
@@ -236,27 +342,54 @@ const TableCryptoList: React.FC = ({ cryptoList }: any) => {
 
   return (
     <>
-      <Space className="pb-8">
-        {tabLinks.map((tab) => (
-          <button
-            key={tab.id}
-            className={`px-5 py-[6px] rounded-[8px] ${
-              activeButton === tab.id
-                ? 'text-neutral-100 bg-primary-40'
-                : 'text-neutral-0 bg-transparent'
-            }`}
-            onClick={() => setActiveButton(tab.id)}
-          >
-            {tab.label}
-          </button>
-        ))}
+      <Space className="pb-8 pt-4 md:pt-0 flex justify-between">
+        <div className="flex justify-between">
+          {tabLinks.map((tab) => (
+            <button
+              key={tab.id}
+              className={`px-5 py-[6px] rounded-[8px] hidden md:flex ${
+                activeButton === tab.id
+                  ? 'text-neutral-100 bg-primary-40'
+                  : 'text-neutral-0 bg-transparent'
+              }`}
+              onClick={() => setActiveButton(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+        <button
+          className={`px-5 py-[6px] text-neutral-100 bg-primary-40 rounded-[8px] flex md:hidden`}
+        >
+          {cryptoList.allCrypto}
+        </button>
+        <div className="relative w-full">
+          <input
+            type="text"
+            placeholder="جستجو"
+            className="w-full bg-white border-[1px] py-[10px] ps-10 border-neutral-98 rounded-lg"
+          />
+          <span className="absolute right-3 top-4 text-gray-400">
+            <SearchOutlined />
+          </span>
+        </div>
       </Space>
-      <Table<DataType>
-        columns={columns}
-        dataSource={getDataSource()}
-        pagination={false}
-        onChange={handleChange}
-      />
+      <div className="hidden md:block">
+        <Table<DataType>
+          columns={columns}
+          dataSource={getDataSource()}
+          pagination={false}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="block md:hidden">
+        <Table<DataType>
+          columns={mobileColumns}
+          dataSource={getDataSource()}
+          pagination={false}
+          onChange={handleChange}
+        />
+      </div>
     </>
   );
 };

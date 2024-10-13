@@ -23,8 +23,8 @@ export default function CoinAnalyzeSlider({ title }: CategorySwiperProps) {
   };
 
   return (
-    <div className="flex flex-row gap-3 md:mt-10 text-[24px] md:px-[64px] font-[700] text-neutral-5">
-      <div className="hidden md:flex flex-col">
+    <div className="flex background-linear-gradient flex-row gap-3 md:mt-10 text-[24px] md:px-[64px] font-[700] text-neutral-5">
+      <div className="hidden  md:flex flex-col">
         <h3 className="font-[700] text-[28px]">{title}</h3>
         <div className="flex gap-5 pt-6">
           <button
@@ -73,7 +73,7 @@ export default function CoinAnalyzeSlider({ title }: CategorySwiperProps) {
       >
         {categories.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className="flex flex-col border-[1px] border-neutral-98 w-[157px] text-center items-center rounded-[20px] py-5 gap-1 px-4">
+            <div className="flex bg-white my-6 flex-col border-[1px] border-neutral-98 w-[157px] text-center items-center rounded-[20px] py-5 gap-1 px-4">
               <Image src={item.icon} alt="email" />
               <span className="text-[15px] text-neutral-5">{item.title}</span>
               <div className="flex items-center gap-1">

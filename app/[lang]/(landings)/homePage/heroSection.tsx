@@ -2,10 +2,9 @@
 import Image from 'next/image';
 import BannerImage from '#/assets/svg/baner-hero.jpg';
 import EmailIcon from '#/assets/svg/email.svg';
-import CoinAnalyzeSlider from '../CoinAnalyzeSlider';
+import CoinAnalyzeSlider from '../../common/components/CoinAnalyzeSlider';
 
 export default function HeroSection({ home }: any) {
-
   return (
     <>
       <section className="relative w-full h-[500px]">
