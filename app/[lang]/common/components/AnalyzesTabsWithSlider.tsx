@@ -20,6 +20,7 @@ interface AnalyzesProps {
     breakingNews: string;
     seeAll: string;
     all: string;
+    analysCrypto:string
   };
   tab?: boolean;
 }

@@ -375,7 +375,7 @@ const TableCryptoList = ({ cryptoList }: any) => {
         </div>
       </Space>
       <div className="hidden md:block">
-        <Table<DataType>
+        <Table<any>
           columns={columns}
           dataSource={getDataSource()}
           pagination={false}
@@ -383,7 +383,7 @@ const TableCryptoList = ({ cryptoList }: any) => {
         />
       </div>
       <div className="block md:hidden">
-        <Table<DataType>
+        <Table<any>
           columns={mobileColumns}
           dataSource={getDataSource()}
           pagination={false}

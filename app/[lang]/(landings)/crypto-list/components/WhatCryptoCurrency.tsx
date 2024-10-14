@@ -12,7 +12,7 @@ export default function CurrencyInfoSlider({ cryptoList }: any) {
       <CustomSwipper
         data={data}
         customPagination={true}
-        renderSlideContent={(item) => (
+        renderSlideContent={() => (
           <div className="flex flex-col justify-start">
             <h2 className="font-[800] text-[28px] text-neutral-0">
               {cryptoList.whatPriceDigitalCurrency}

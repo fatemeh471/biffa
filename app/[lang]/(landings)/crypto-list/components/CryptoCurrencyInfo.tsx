@@ -107,7 +107,7 @@ export default async function MostCoinSlider({ cryptoList }: any) {
       <section className="block md:hidden">
           <CustomSwipper
             data={list}
-            renderSlideContent={(i) => (
+            renderSlideContent={(i: { heading: { label: string; link: string | undefined; }; body: any[]; }) => (
               <div className="flex-col w-full">
                 <div className="flex mb-2 justify-between">
                   <p className="text-neutral-10 font-[700] text-[24px]">
@@ -122,7 +122,7 @@ export default async function MostCoinSlider({ cryptoList }: any) {
                     </Link>
                   </div>
                 </div>
-                {i.body.map((coin) => (
+                {i.body.map((coin: any) => (
                   <div className="bg-neutral-99 h-[60px] flex justify-between mb-4 px-[16px] rounded-[8px]">
                     <div className="flex items-center gap-2">
                       {i.heading.label !== cryptoList.malState && (
