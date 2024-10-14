@@ -8,7 +8,7 @@ import Telegram from '#/assets/svg/telegram.svg';
 import Youtube from '#/assets/svg/youtube.svg';
 import Twitter from '#/assets/svg/twitter.svg';
 import Button from './Button';
-import SendIcon from '#/assets/svg/send.svg';
+import { SendOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 
 export default async function Footer({ params }: { params: { lang: string } }) {
@@ -107,7 +107,10 @@ export default async function Footer({ params }: { params: { lang: string } }) {
             <Button
               size="medium"
               startIcon={
-                <Image src={SendIcon} alt="user" width={16} className="mx-1" />
+                <SendOutlined
+                  className="me-1 w-[20px]"
+                  style={{ transform: 'rotate(-45deg)' }}
+                />
               }
             >
               {footer.start}

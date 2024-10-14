@@ -7,6 +7,7 @@ import ChevronIcon from '#/assets/svg/chevron-left.svg';
 import EditIcon from '#/assets/svg/edit.svg';
 import { useState } from 'react';
 import { categories } from '#/fakeData';
+import CustomPaginationSwipper from './customPaginationSwiper';
 
 interface CategorySwiperProps {
   title: string;
@@ -27,24 +28,11 @@ export default function CoinAnalyzeSlider({ title }: CategorySwiperProps) {
       <div className="hidden  md:flex flex-col">
         <h3 className="font-[700] text-[28px]">{title}</h3>
         <div className="flex gap-5 pt-6">
-          <button
-            onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
-            className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-              isBeginning ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-            disabled={isBeginning}
-          >
-            <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-          </button>
-          <button
-            onClick={() => controlledSwiper && controlledSwiper.slideNext()}
-            className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-              isEnd ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-            disabled={isEnd}
-          >
-            <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-          </button>
+          <CustomPaginationSwipper
+            controlledSwiper={controlledSwiper}
+            isBeginning={isBeginning}
+            isEnd={isEnd}
+          />
         </div>
       </div>
       <Swiper

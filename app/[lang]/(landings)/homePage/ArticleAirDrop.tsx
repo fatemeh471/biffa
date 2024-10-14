@@ -5,13 +5,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Controller } from 'swiper/modules';
 import { useState } from 'react';
 import ProfileImage from '#/assets/svg/profile.svg';
-import ChevronIcon from '#/assets/svg/chevron-left.svg';
 import Image from 'next/image';
 import { categoriesArticleList } from '#/fakeData';
 import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
 import Link from 'next/link';
+import CustomPaginationSwipper from '../../common/components/customPaginationSwiper';
 
-function ArticleAirDrop({ home }: { home : any}) {
+function ArticleAirDrop({ home }: { home: any }) {
   const [controlledSwiper, setControlledSwiper] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isBeginning, setIsBeginning] = useState(true);
@@ -31,24 +31,11 @@ function ArticleAirDrop({ home }: { home : any}) {
             {home.articleAirdrop}
           </p>
           <div className="hidden lg:flex gap-2">
-            <button
-              onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
-              className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-                isBeginning ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-              disabled={isBeginning}
-            >
-              <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-            </button>
-            <button
-              onClick={() => controlledSwiper && controlledSwiper.slideNext()}
-              className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-                isEnd ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-              disabled={isEnd}
-            >
-              <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-            </button>
+            <CustomPaginationSwipper
+              controlledSwiper={controlledSwiper}
+              isBeginning={isBeginning}
+              isEnd={isEnd}
+            />
           </div>
         </div>
         <div className="flex items-center gap-1">

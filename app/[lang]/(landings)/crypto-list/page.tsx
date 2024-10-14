@@ -9,11 +9,11 @@ import Image from 'next/image';
 import TableCryptoList from './components/tableCrptoList';
 import CoinAnalyzeSlider from '../../common/components/CoinAnalyzeSlider';
 import CryptoCurrencyPrice from '#/assets/svg/crypto-currency-price.png';
-import CryptoSlider from './components/CryptoSlider';
+import CurrencyInfoSlider from './components/WhatCryptoCurrency';
 import AnalyzesTabsWithSlider from '../../common/components/AnalyzesTabsWithSlider';
 import CollapseComponent from '../../common/components/CollapseComponent';
 import ProfileImage from '#/assets/svg/profile.svg';
-import MostCoinSlider from './components/MostCoinslider';
+import MostCoinSlider from './components/CryptoCurrencyInfo';
 
 export default async function CryptoList({ params }: any) {
   const dictionary = await getDictionary(params.lang);
@@ -54,7 +54,7 @@ export default async function CryptoList({ params }: any) {
             className="w-full md:w-[50%] h-[357px]"
             alt="coin"
           />
-          <CryptoSlider cryptoList={cryptoList} />
+          <CurrencyInfoSlider cryptoList={cryptoList} />
         </div>
         <div className="mb-[36px] md:mb-[96px]">
           <AnalyzesTabsWithSlider tab={false} home={home} />

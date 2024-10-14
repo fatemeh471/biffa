@@ -12,6 +12,7 @@ import { AnalyzesTabItems, categoriesNewsList } from '#/fakeData';
 import Link from 'next/link';
 import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
 import { TabContent, TabNav } from './Tab';
+import CustomPaginationSwipper from './customPaginationSwiper';
 
 function BreakingNews({ home }: any) {
   const [activeTab, setActiveTab] = useState('allCategories');
@@ -25,7 +26,6 @@ function BreakingNews({ home }: any) {
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
   };
-console.log(home, 'home');
   return (
     <>
       <div className="flex items-center justify-between gap-2 pb-8">
@@ -34,24 +34,11 @@ console.log(home, 'home');
             {home.breakingNews}
           </p>
           <div className="hidden lg:flex gap-2">
-            <button
-              onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
-              className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-                isBeginning ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-              disabled={isBeginning}
-            >
-              <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-            </button>
-            <button
-              onClick={() => controlledSwiper && controlledSwiper.slideNext()}
-              className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-                isEnd ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-              disabled={isEnd}
-            >
-              <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-            </button>
+            <CustomPaginationSwipper
+              controlledSwiper={controlledSwiper}
+              isBeginning={isBeginning}
+              isEnd={isEnd}
+            />
           </div>
         </div>
         <div className="flex items-center gap-1">
