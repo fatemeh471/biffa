@@ -10,7 +10,6 @@ import {
   RightOutlined,
 } from '@ant-design/icons';
 import { useState } from 'react';
-import CustomPaginationSwipper from './customPaginationSwiper';
 
 export default function CustomSwipper({
   data,
@@ -41,7 +40,7 @@ export default function CustomSwipper({
         {...props}
         pagination={
           !customPagination
-            ? { clickable: true, bulletClass: 'swiper-pagination-bullet' }
+            ? { clickable: true, el: 'swiper-pagination' }
             : false
         } // Bullet pagination if customPagination is false
       >
@@ -54,12 +53,25 @@ export default function CustomSwipper({
 
       {/* Render custom navigation buttons if customPagination is true */}
       {customPagination && (
-        <div className="flex gap-5 pt-6">
-          <CustomPaginationSwipper
-            controlledSwiper={controlledSwiper}
-            isBeginning={isBeginning}
-            isEnd={isEnd}
-          />
+        <div className="flex gap-5 mt-0 swiper-pagination">
+          <button
+            onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
+            className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
+              isBeginning ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            disabled={isBeginning}
+          >
+            <RightOutlined className="text-neutral-20" />
+          </button>
+          <button
+            onClick={() => controlledSwiper && controlledSwiper.slideNext()}
+            className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
+              isEnd ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            disabled={isEnd}
+          >
+            <LeftOutlined className="text-neutral-20" />
+          </button>
         </div>
       )}
     </div>

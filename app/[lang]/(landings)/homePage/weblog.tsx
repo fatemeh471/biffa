@@ -12,6 +12,7 @@ import { TabContent, TabNav } from '../../common/components/Tab';
 import { AnalyzesTabItems, categoriesWeblogList } from '#/fakeData';
 import Link from 'next/link';
 import ArrowUpLeft from '#/assets/svg/Arrow-Up-Left.svg';
+import CustomPaginationSwipper from '../../common/components/customPaginationSwiper';
 
 function Weblog({ home }: any) {
   const [activeTab, setActiveTab] = useState('allCategories');
@@ -30,24 +31,11 @@ function Weblog({ home }: any) {
         <div className="flex items-center gap-6">
           <p className="font-[700] text-[32px] text-neutral-5">{home.blog}</p>
           <div className="hidden lg:flex gap-2">
-            <button
-              onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
-              className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-                isBeginning ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-              disabled={isBeginning}
-            >
-              <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-            </button>
-            <button
-              onClick={() => controlledSwiper && controlledSwiper.slideNext()}
-              className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${
-                isEnd ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-              disabled={isEnd}
-            >
-              <Image width={24} height={24} src={ChevronIcon} alt="icon" />
-            </button>
+            <CustomPaginationSwipper
+              controlledSwiper={controlledSwiper}
+              isBeginning={isBeginning}
+              isEnd={isEnd}
+            />
           </div>
         </div>
         <div className="flex items-center gap-1">
