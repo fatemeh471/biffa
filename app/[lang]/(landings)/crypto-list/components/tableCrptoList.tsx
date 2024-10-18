@@ -10,6 +10,7 @@ import {
 import CoinIcon from '#/assets/svg/coin.svg';
 import Image from 'next/image';
 import { favoriteData, metaverseData } from '#/fakeData';
+import { useRouter } from 'next/navigation';
 
 type OnChange = NonNullable<TableProps<any>['onChange']>;
 type Sorts = Parameters<OnChange>[2];
@@ -17,7 +18,10 @@ type Sorts = Parameters<OnChange>[2];
 const TableCryptoList = ({ cryptoList }: any) => {
   const [sortedInfo, setSortedInfo] = useState<any>({});
   const [activeButton, setActiveButton] = useState<string>('favorite');
-
+  const router = useRouter();
+  const handleRowClick = (record: any) => {
+    router.push(`crypto-list/coins/${record.key}`);
+  };
   const getDataSource = () => {
     switch (activeButton) {
       case 'favorite':
@@ -380,6 +384,13 @@ const TableCryptoList = ({ cryptoList }: any) => {
           dataSource={getDataSource()}
           pagination={false}
           onChange={handleChange}
+          onRow={(record, rowIndex) => {
+            return {
+              onClick: () => {
+                handleRowClick(record);
+              },
+            };
+          }}
         />
       </div>
       <div className="block md:hidden">

@@ -27,7 +27,7 @@ export default function CoinAnalyzeSlider({ title }: CategorySwiperProps) {
     <div className="flex background-linear-gradient flex-row gap-3 md:mt-10 text-[24px] md:px-[64px] font-[700] text-neutral-5">
       <div className="hidden  md:flex flex-col">
         <h3 className="font-[700] text-[28px]">{title}</h3>
-        <div className="flex gap-5 pt-6">
+        <div className="flex gap-5">
           <CustomPaginationSwipper
             controlledSwiper={controlledSwiper}
             isBeginning={isBeginning}

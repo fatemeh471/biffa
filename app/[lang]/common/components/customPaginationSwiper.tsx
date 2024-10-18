@@ -9,7 +9,7 @@ export default function CustomPaginationSwipper({
   isEnd,
 }: any) {
   return (
-    <div className="flex gap-5 pt-6">
+    <div className="flex gap-5">
       <button
         onClick={() => controlledSwiper && controlledSwiper.slidePrev()}
         className={`flex justify-center items-center border-[1px] border-neutral-80 rounded-[100%] w-[44px] h-[44px] text-white ${

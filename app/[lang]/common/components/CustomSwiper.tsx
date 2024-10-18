@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Controller, Pagination } from 'swiper/modules';
 import {
   UpOutlined,
-  DownOutlined,
   LeftOutlined,
   RightOutlined,
 } from '@ant-design/icons';

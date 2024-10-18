@@ -22,9 +22,9 @@ export default async function Home({ params }: { params: { lang: string } }) {
       <main className="w-full overflow-auto px-4 md:px-[64px]">
         <MostVisitedArticle
           title={home.mostVisited}
+          newsLabel={home.mostVisitedNew}
           swiperData={mostVisitedNews}
           data={MostVisitedArticleList}
-          newsLabel={home.mostVisitedNew}
         />
         <section className="md:py-[60px]">
           <Image
