@@ -1,25 +1,21 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { createChart } from 'lightweight-charts';
-import CryptoTimeMachine from './CryptoTimeMachine';
 
 const CandleChart = ({ crptoCurrencyList }: any) => {
-  const chartContainerRef = useRef(null);
+  const chartContainerRef: any = useRef(null);
   const chartRef = useRef(null);
   const [timeframe, setTimeframe] = useState('daily');
 
   useEffect(() => {
     if (!chartContainerRef.current) return;
 
-    const chart = createChart(chartContainerRef.current, {
+    const chart: any = createChart(chartContainerRef.current, {
       width: chartContainerRef.current.clientWidth,
       height: 550,
       layout: {
-        background: { type: 'solid', color: '#1E2125' },
+        background: { type: 'solid' as any, color: '#1E2125' },
         textColor: 'white',
-      },
-      crossHair: {
-        mode: 0,
       },
       grid: {
         vertLines: {
@@ -45,9 +41,8 @@ const CandleChart = ({ crptoCurrencyList }: any) => {
       wickDownColor: '#ef5350',
     });
 
-    // Function to set data based on timeframe
-    const setDataByTimeframe = (timeframe) => {
-      let data = [];
+    const setDataByTimeframe = (timeframe: any) => {
+      let data: any = [];
       if (timeframe === 'hourly') {
         data = [
           {

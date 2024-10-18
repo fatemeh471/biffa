@@ -40,20 +40,20 @@ const seriesData = new Map([
   ['1Y', yearData],
 ]);
 
-const AreaChartComponent = (props) => {
+const AreaChartComponent = (props:any) => {
   const {
     data,
     colors: {
-      backgroundColor = 'rgba(30, 33, 37, 1)', // پس‌زمینه قرمز
+      backgroundColor = 'rgba(30, 33, 37, 1)', 
       lineColor = '#F7A01D',
       textColor = 'rgba(255, 255, 255, 1)',
       areaTopColor = '#F7A01D',
       areaBottomColor = '#212121',
-      gridColor = 'rgba(61, 66, 75, 1)', // رنگ خطوط شطرنجی (سبز)
+      gridColor = 'rgba(61, 66, 75, 1)',
     } = {},
   } = props;
 
-  const chartContainerRef = useRef(null);
+  const chartContainerRef:any = useRef(null);
 
   useEffect(() => {
     if (!chartContainerRef.current) return;
@@ -65,12 +65,12 @@ const AreaChartComponent = (props) => {
       },
       grid: {
         vertLines: {
-          color: gridColor, // تنظیم رنگ خطوط عمودی شطرنجی
-          style: 1, // سبک خط (1 برای خط نقطه‌چین)
+          color: gridColor,
+          style: 1,
         },
         horzLines: {
-          color: gridColor, // تنظیم رنگ خطوط افقی شطرنجی
-          style: 1, // سبک خط (1 برای خط نقطه‌چین)
+          color: gridColor,
+          style: 1,
         },
       },
       width: chartContainerRef.current.clientWidth,

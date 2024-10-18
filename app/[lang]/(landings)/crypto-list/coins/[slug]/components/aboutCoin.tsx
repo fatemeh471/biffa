@@ -125,7 +125,7 @@ function AboutCoin({ crptoCurrencyList }: any) {
         {tabLinks.map((tab) => (
           <button
             key={tab.id}
-            className={`py-[6px] px-5 w-[151px] text-center font-[700] text-base text-nowrap h-[48px] rounded-[12px]  ${
+            className={`py-[6px] px-5 md:px-0 w-full text-center font-[700] text-base text-nowrap h-[48px] rounded-[12px]  ${
               activeButton === tab.id
                 ? 'text-neutral-100 bg-primary-40'
                 : 'border-[1px] border-neutral-40 text-neutral-100  bg-transparent'

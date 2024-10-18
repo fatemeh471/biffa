@@ -3,7 +3,7 @@ import { UpOutlined, CopyOutlined } from '@ant-design/icons';
 import { Collapse, List, Space } from 'antd';
 import { useState } from 'react';
 
-function Content({ crptoCurrencyList }) {
+function Content({ crptoCurrencyList }: any) {
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = () => {
