@@ -21,7 +21,7 @@ function Content({ crptoCurrencyList }: any) {
         <h2 className="font-[700] pb-4 md:pb-2 text-neutral-0  text-[20px] text-center md:text-start md:text-[28px]">
           {crptoCurrencyList.coinName}
         </h2>
-        <p className="font-[500] pb-8 md:pb-[96px] text-neutral-25 text-[16px]">
+        <p className="font-[500] text-neutral-25 text-[16px]">
           {crptoCurrencyList.buyAndSellCoinDescription}
         </p>
       </section>
