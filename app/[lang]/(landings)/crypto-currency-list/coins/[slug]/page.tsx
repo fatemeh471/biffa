@@ -95,7 +95,7 @@ const CoinPage = async ({
       </section>
       <section className="px-4 md:px-[230px]">
         <RegisterComment cryptoList={cryptoList} />
-        <div className='pt-4'>
+        <div className="pt-4">
           <UserComments cryptoList={cryptoList} />
         </div>
       </section>

@@ -10,7 +10,7 @@ import Link from 'next/link';
 const Header = ({ header, params }: any) => {
   const headerNav = [
     { label: header.learningArticle, link: '/' },
-    { label: header.cryptoList, link: '/crypto-list' },
+    { label: header.cryptoList, link: '/crypto-currency-list' },
     { label: header.cryptoAnalys, link: '/' },
     { label: header.bitfaAcademi, link: '/' },
     { label: header.bitfanda, link: '/' },

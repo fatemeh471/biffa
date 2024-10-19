@@ -20,7 +20,7 @@ const TableCryptoList = ({ cryptoList }: any) => {
   const [activeButton, setActiveButton] = useState<string>('favorite');
   const router = useRouter();
   const handleRowClick = (record: any) => {
-    router.push(`crypto-list/coins/${record.key}`);
+    router.push(`crypto-currency-list/coins/${record.key}`);
   };
   const getDataSource = () => {
     switch (activeButton) {
