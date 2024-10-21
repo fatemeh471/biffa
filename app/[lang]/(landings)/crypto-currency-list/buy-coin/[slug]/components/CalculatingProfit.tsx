@@ -42,10 +42,10 @@ function CalculatingProfit({ buyCrypto }: any) {
     <>
       <section className="mt-8">
         <p className="text-neutral-100 font-[700] text-[20px] md:text-[28px]">
-          {buyCrypto.cryptoTimeMachine}
+          {buyCrypto.calculatingProfitBitcoins}
         </p>
         <p className="text-neutral-100 font-[400] pt-2 text-[14px]">
-          {buyCrypto.cryptoTimeMachineDescription}
+          {buyCrypto.calculatingProfitDescription}
         </p>
         <section className="mt-3">
           <div className="flex flex-col md:flex-row w-full gap-2 justify-between items-center">
@@ -80,7 +80,7 @@ function CalculatingProfit({ buyCrypto }: any) {
               </div>
             </div>
           </div>
-          <div className='flex items-center row-reverse justify-between mt-4'>
+          <div className="flex items-center row-reverse justify-between mt-4">
             <div className="flex flex-col md:w-[50%] gap-2">
               {currentlyCoin.map((item) => (
                 <div className="flex items-center justify-between p-4 gap-1 border-[1px] border-neutral-10 rounded-[8px]">

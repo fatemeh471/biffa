@@ -41,7 +41,7 @@ const CoinPage = async ({
   params: { lang: string; slug: string };
 }) => {
   const dictionary = await getDictionary(params.lang);
-  const { crptoCurrencyList, home, cryptoList } = dictionary;
+  const { crptoCurrencyList, home, cryptoList, buyCrypto } = dictionary;
   const item = [
     {
       answer: crptoCurrencyList.answer,
@@ -64,7 +64,10 @@ const CoinPage = async ({
   return (
     <>
       <section className="bg-neutral-0 px-4 py-5 md:px-[80px] md:py-[64px]">
-        <SectionCoinDetails crptoCurrencyList={crptoCurrencyList} />
+        <SectionCoinDetails
+          crptoCurrencyList={crptoCurrencyList}
+          buyCrypto={buyCrypto}
+        />
       </section>
       <Content crptoCurrencyList={crptoCurrencyList} />
       <section className="px-4 md:px-[64px] pb-8 md:pb-[96px]">

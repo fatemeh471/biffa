@@ -7,7 +7,7 @@ import ConversionCalculator from './ConversionCalculator';
 import CryptoTimeMachine from './CryptoTimeMachine';
 import AboutCoin from './aboutCoin';
 
-function SectionCoinDetails({ crptoCurrencyList }: any) {
+function SectionCoinDetails({ crptoCurrencyList, buyCrypto }: any) {
   const listCoinDetail = [
     { label: crptoCurrencyList.volumnDeal, value: 11231131 },
     { label: crptoCurrencyList.volumnDeal, value: 11231131 },
@@ -22,7 +22,7 @@ function SectionCoinDetails({ crptoCurrencyList }: any) {
   ];
   return (
     <>
-      <AboutCoin crptoCurrencyList={crptoCurrencyList} />
+      <AboutCoin crptoCurrencyList={crptoCurrencyList} buyCrypto={buyCrypto} />
       <div className="md:border-[1px] md:border-neutral-15 rounded-[16px]">
         <AreaChart crptoCurrencyList={crptoCurrencyList} />
       </div>

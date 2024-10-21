@@ -89,17 +89,6 @@ function ConversionCalculator({ buyCrypto }: any) {
           </Dropdown>
           <p className="pl-5 font-[200] text-neutral-100">0.00345</p>
         </div>
-        {/* <p className="text-[20px] font-[700] text-right pb-2 text-neutral-100 mt-[56px]">
-          {buyCrypto.thevalueBitcoin}
-        </p>
-        {[1, 2, 3, 3, 4, 4, 4, 4].map((item) => (
-          <div className="flex flex-col border-b-[1px] border-neutral-15">
-            <div className="flex py-[20px] w-full rounded-[11px] justify-between items-center">
-              <p className="text-[16px] font[500]">BTC</p>
-              <p className="text-[16px] font[500]">$63,493</p>
-            </div>
-          </div>
-        ))} */}
       </div>
       <button className="flex text-[18px] font[500] py-[17px] w-full rounded-[11px] mt-6 justify-center items-center bg-primary-40 gap-2 rounded-[100%] text-white">
         {buyCrypto.buyCryptoCurrency}

@@ -7,6 +7,7 @@ import { Dropdown, Flex, Progress, Space } from 'antd';
 import CoinIcon from '#/assets/svg/coin-logo.svg';
 import Image from 'next/image';
 import Link from 'next/link';
+import ButtonTabLink from '../../../components/ButtonTabLink';
 
 const items: MenuProps['items'] = [
   {
@@ -23,31 +24,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-function AboutCoin({ crptoCurrencyList }: any) {
-  const [activeButton, setActiveButton] = useState<string>('bitcoin');
-
-  const tabLinks = [
-    { label: crptoCurrencyList.bitcoin, id: 'bitcoin', link: '' },
-    {
-      label: crptoCurrencyList.buyBitcoin,
-      id: 'buyBitcoin',
-      link: '/fa/crypto-currency-list/buy-coin/123',
-    },
-    { label: crptoCurrencyList.deepMarket, id: 'deepMarket', link: '' },
-    { label: crptoCurrencyList.markets, id: 'markets', link: '' },
-    { label: crptoCurrencyList.fandamental, id: 'fandamental', link: '' },
-    {
-      label: crptoCurrencyList.ExtractionDevices,
-      id: 'ExtractionDevices',
-      link: '',
-    },
-    {
-      label: crptoCurrencyList.profitabilityMining,
-      id: 'profitabilityMining',
-      link: '',
-    },
-    { label: crptoCurrencyList.newsArticles, id: 'newsArticles', link: '' },
-  ];
+function AboutCoin({ crptoCurrencyList, buyCrypto }: any) {
   return (
     <>
       <h1 className="font-[700] pb-4 text-center text-neutral-100 text-[24px] md:text-[44px]">
@@ -134,23 +111,7 @@ function AboutCoin({ crptoCurrencyList }: any) {
           </div>
         </div>
       </div>
-      <div className="flex justify-between overflow-x-auto gap-4 md:gap-auto pt-4 pb-5">
-        {tabLinks.map((tab) => (
-          <Link href={tab.link} className='w-full'>
-            <button
-              key={tab.id}
-              className={`py-[6px] px-5 md:px-0 w-full text-center font-[700] text-base text-nowrap h-[48px] rounded-[12px]  ${
-                activeButton === tab.id
-                  ? 'text-neutral-100 bg-primary-40'
-                  : 'border-[1px] border-neutral-40 text-neutral-100  bg-transparent'
-              }`}
-              onClick={() => setActiveButton(tab.id)}
-            >
-              {tab.label}
-            </button>
-          </Link>
-        ))}
-      </div>
+      <ButtonTabLink buyCrypto={buyCrypto} />
     </>
   );
 }
