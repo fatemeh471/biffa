@@ -1,7 +1,7 @@
 import { getDictionary } from '#/app/[lang]/dictionaries';
 import ButtonTabLink from '../../components/ButtonTabLink';
 
-async function MarketDepth({ params }) {
+async function MarketDepth({ params }: any) {
   const dic = await getDictionary(params.lang);
   const { buyCrypto } = dic;
 
