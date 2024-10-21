@@ -1,0 +1,26 @@
+:root {
+  --ant-primary-color: transparent; /* رنگ اصلی */
+}
+
+.ant-segmented {
+  background-color: var(--ant-primary-color) !important;
+  color: rgb(255, 255, 255);
+  border: 1px solid #3d424b;
+}
+.ant-segmented-item {
+  padding: 10px 5px;
+}
+.ant-segmented-item:hover {
+  background-color: transparent !important; /* Slight hover effect */
+  color: rgb(255, 255, 255) !important;
+
+}
+.ant-segmented-item-selected,
+.ant-segmented-thumb,
+.ant-segmented-item-selected:hover {
+  padding: 10px 5px;
+  background-color: #2dac96 !important;
+  color: white !important;
+  font-size: 18px;
+  font-weight: 600;
+}

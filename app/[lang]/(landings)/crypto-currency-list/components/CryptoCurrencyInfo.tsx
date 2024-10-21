@@ -5,7 +5,7 @@ import Link from 'antd/es/typography/Link';
 import Image from 'next/image';
 import CustomSwipper from '#/app/[lang]/common/components/CustomSwiper';
 
-export default async function MostCoinSlider({ cryptoList }: any) {
+export default function MostCoinSlider({ cryptoList }: any) {
   const list = [
     {
       heading: {
